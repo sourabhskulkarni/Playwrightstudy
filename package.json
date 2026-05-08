@@ -1,0 +1,28 @@
+{
+  "name": "playwrightstudy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:headed": "playwright test --headed",
+    "test:day1": "playwright test Day1/examples/",
+    "test:day2": "playwright test Day2/examples/",
+    "test:day3": "playwright test Day3/examples/",
+    "test:day4": "playwright test Day4/examples/",
+    "report": "playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.1",
+    "@types/sqlite3": "^3.1.11",
+    "playwright-bdd": "^8.5.0",
+    "sqlite3": "^6.0.1"
+  }
+}

@@ -1,0 +1,49 @@
+name: Scheduled Playwright Tests
+
+# Run tests on a schedule (daily at 2 AM UTC, every Monday at 6 AM UTC)
+on:
+  schedule:
+    - cron: '0 2 * * *'      # Daily at 2:00 AM UTC
+    - cron: '0 6 * * 1'      # Every Monday at 6:00 AM UTC
+  workflow_dispatch:         # Allow manual trigger from GitHub UI
+
+jobs:
+  scheduled-test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+    
+    - name: Run Playwright tests
+      run: npx playwright test
+    
+    - name: Upload test report
+      if: ${{ !cancelled() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: playwright-report-scheduled
+        path: playwright-report/
+        retention-days: 30
+    
+    - name: Create GitHub Issue on Test Failure
+      if: failure()
+      uses: actions/github-script@v7
+      with:
+        script: |
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: `⚠️ Scheduled Tests Failed - ${new Date().toLocaleDateString()}`,
+            body: `## Scheduled Test Failure Notification\n\n**Workflow:** Scheduled Playwright Tests\n**Run ID:** ${context.runId}\n**Commit:** ${context.sha}\n\n[View Details](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})\n\n**Action:** Please review the test failures and fix accordingly.`
+          })
