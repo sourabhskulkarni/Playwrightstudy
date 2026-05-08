@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Playwright and TypeScript Training Course
 
 ## Course Overview
@@ -136,3 +137,7 @@ The course includes advanced topics for experienced professionals:
 - Interview preparation guide
 
 Happy Testing! 🎭
+=======
+# Playwrightstudy
+"Complete Playwright Testing Training - Days 1-5 with CI/CD automation, K6 and JMeter"
+>>>>>>> ad6947c830cf5bfd23d4b570293483feb24c9edc
