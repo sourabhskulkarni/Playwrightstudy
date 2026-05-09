@@ -1,0 +1,92 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "home-page-test-for-makemytrip;verify-makemytrip-homepage",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "Verify MakeMyTrip homepage",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1920518000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "user is on MakeMyTrip homepage",
+            "match": {
+              "location": "Day2\\examples\\step-definitions\\home-page.steps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1764622800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "user should be able to see login pop-up",
+            "match": {
+              "location": "Day2\\examples\\step-definitions\\home-page.steps.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4179396300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "user close the pop-up",
+            "match": {
+              "location": "Day2\\examples\\step-definitions\\home-page.steps.ts:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 772354699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "user should see the Login or Create Account button",
+            "match": {
+              "location": "Day2\\examples\\step-definitions\\home-page.steps.ts:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 51466399
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 740245399
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "home-page-test-for-makemytrip",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Home Page Test for MakeMyTrip",
+    "tags": [],
+    "uri": "Day2\\examples\\features\\home-page.feature"
+  }
+]

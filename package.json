@@ -12,7 +12,12 @@
     "test:day2": "playwright test Day2/examples/",
     "test:day3": "playwright test Day3/examples/",
     "test:day4": "playwright test Day4/examples/",
-    "report": "playwright show-report"
+    "report": "playwright show-report",
+    "test:bdd": "cucumber-js",
+    "test:bdd:dry-run": "cucumber-js --dry-run",
+    "test:bdd:tags": "cucumber-js --tags",
+    "test:bdd:report": "cucumber-js --format json:reports/cucumber_report.json",
+    "test.bdd:report:html": "cucumber-js --format html:reports/cucumber_report.html"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +30,7 @@
     "@types/sqlite3": "^3.1.11",
     "dotenv": "^16.6.1",
     "playwright-bdd": "^8.5.0",
-    "sqlite3": "^6.0.1"
+    "sqlite3": "^6.0.1",
+    "ts-node": "^10.9.2"
   }
 }

@@ -1,8 +1,15 @@
-# Day 2 Examples - Production-Ready BDD Framework
+# Day 2 Examples - Production-Ready BDD Framework with Hooks
 
 ## Overview
 
-This directory contains a **complete, industry-standard BDD (Behavior-Driven Development) framework** for flight booking test automation. Every file follows corporate best practices and is suitable for enterprise projects.
+This directory contains a **complete, industry-standard BDD (Behavior-Driven Development) framework** for flight booking test automation. Features an advanced hooks system with:
+- ✅ Centralized fixture management
+- ✅ Lazy-loaded test data (on-demand only)
+- ✅ Automatic browser lifecycle management
+- ✅ Global and per-test lifecycle hooks
+- ✅ Built for corporate team standards
+
+Every file follows corporate best practices and is suitable for enterprise projects.
 
 ## Quick Start
 
@@ -10,6 +17,7 @@ This directory contains a **complete, industry-standard BDD (Behavior-Driven Dev
 ```bash
 cd ../../  # Go to root
 npm install
+npx playwright install
 ```
 
 ### 2. Configure Environment
@@ -22,11 +30,71 @@ DEFAULT_TIMEOUT=30000
 ```
 
 ### 3. Run Tests
+
+**Using Cucumber (BDD - Recommended):**
+```bash
+npx cucumber-js                    # Run all features
+npx cucumber-js --tags @smoke      # Run specific tags
+npx cucumber-js --dry-run          # Validate without executing
+```
+
+**Using Playwright:**
 ```bash
 npm run test:day2
+npx playwright test --reporter=html
 ```
 
 ## Framework Architecture
+
+### Hooks System (`steps/hooks.ts`) ⭐ NEW
+
+**Purpose:** Centralized setup, teardown, and fixture management for all tests.
+
+#### What the Hooks System Provides:
+1. **Browser Lifecycle Management**
+   - Automatic browser launch/cleanup
+   - Context isolation per test
+   - Page objects initialization
+
+2. **Custom Fixtures (Lazy-Loaded)**
+   ```typescript
+   // Only pageObjects - no test data
+   test('Scenario', async ({ pageObjects }) => {
+     const { homePage, bookingPage } = pageObjects;
+   });
+   
+   // pageObjects + test data
+   test('Scenario', async ({ pageObjects, testData }) => {
+     const { homePage } = pageObjects;
+     // testData only generated if test requests it
+   });
+   ```
+
+3. **Global Lifecycle Hooks**
+   - `beforeAll()` - Suite setup (once)
+   - `afterAll()` - Suite teardown (once)
+   - `beforeEach()` - Test setup (every test)
+   - `afterEach()` - Test teardown with auto-screenshot on failure
+
+4. **Test Data Helper Class**
+   ```typescript
+   // Pre-built scenarios
+   const data = TestSetupHelper.generateTestData('roundTripDelhi');
+   
+   // Custom data with builder
+   const custom = TestSetupHelper.generateCustomTestData(builder =>
+     builder.withSearchCriteria({ fromCity: 'Delhi' })
+   );
+   ```
+
+#### Why This Matters:
+- **Zero Redundancy**: No beforeEach/afterEach in every test file
+- **Lazy Loading**: Test data only created when test requests it
+- **Automatic Cleanup**: Screenshots and logs on failure
+- **Better Isolation**: Each test runs independently
+- **Scalable**: Easy to add new tests
+
+**Learn More:** See [HOOKS_REFACTORING_GUIDE.md](steps/HOOKS_REFACTORING_GUIDE.md)
 
 ### Configuration Layer (`config/config.ts`)
 ```typescript
@@ -91,13 +159,22 @@ export class BookingPage {
 
 #### Builder Pattern for Flexible Data
 ```typescript
-// Pre-built scenarios
-const roundTrip = TestDataBuilder.roundTripDelhi();
-const oneWay = TestDataBuilder.oneWayBangalore();
+// Via hooks fixture (recommended)
+test('Scenario', async ({ pageObjects, testData }) => {
+  // testData = TestDataBuilder.roundTripDelhi() by default
+  // Only created if test requests it
+});
+
+// Pre-built scenarios via helper
+const roundTrip = TestSetupHelper.generateTestData('roundTripDelhi');
+const oneWay = TestSetupHelper.generateTestData('oneWayBangalore');
 
 // Custom data
-const custom = new TestDataBuilder()
-  .withSearchCriteria({ fromCity: 'Bangalore', adults: 3 })
+const custom = TestSetupHelper.generateCustomTestData(builder =>
+  builder
+    .withSearchCriteria({ fromCity: 'Bangalore', adults: 3 })
+    .withDefaultPassengers(3)
+)
   .withDefaultPassengers(3)
   .build();
 
