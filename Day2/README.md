@@ -1,4 +1,4 @@
-# Day 2: Advanced UI Testing and Page Object Model (POM)
+# Day 2: Advanced UI Testing, Page Object Model, and Hooks Framework
 
 ## 📖 READ IN THIS ORDER
 
@@ -8,56 +8,136 @@
    - Complete test execution flow
    - How tests run from start to finish
 
-2. **[INDUSTRY_STANDARDS_GUIDE.md](INDUSTRY_STANDARDS_GUIDE.md)** (30 min)
+2. **[examples/HOOKS_REFACTORING_GUIDE.md](examples/steps/HOOKS_REFACTORING_GUIDE.md)** ← **NEW** (20 min)
+   - Corporate hooks and fixtures system
+   - Why we refactored from beforeEach
+   - Pattern 1: Page objects only
+   - Pattern 2: Page objects + test data
+   - Pattern 3: Custom test data
+   - Best practices and corporate standards
+
+3. **[INDUSTRY_STANDARDS_GUIDE.md](INDUSTRY_STANDARDS_GUIDE.md)** (30 min)
    - Enterprise Page Object Model
    - Configuration management
    - Test data builder pattern
    - Framework architecture
 
-3. **[Day2/examples/README.md](examples/README.md)** (15 min)
+4. **[examples/README.md](examples/README.md)** (15 min)
    - Quick start guide
+   - Hooks system overview
    - Running the examples
    - File descriptions
 
-4. **Look at code** (30 min)
-   - `examples/pages/HomePage.ts` - See POM in action
-   - `examples/pages/BookingPage.ts` - More examples
-   - `examples/steps/booking.steps.ts` - Complete tests
+5. **Look at code** (30 min)
+   - `examples/steps/hooks.ts` - Core hooks implementation
+   - `examples/steps/home-page/home-page.steps.ts` - BDD tests using hooks
+   - `examples/pages/HomePage.ts` - Page Object Model
+   - `examples/utils/testData.ts` - Test data builder
 
 ---
 
-## ⭐ PRODUCTION-READY FRAMEWORK
+## ⭐ NEW: HOOKS FRAMEWORK (Corporate Standard)
 
-**This directory now includes a complete, industry-standard BDD framework** designed for corporate environments. 
+### What's New in This Release?
 
-**👉 [Start with Fundamentals Guide](PLAYWRIGHT_FUNDAMENTALS.md)** for foundation concepts, then move to [Industry Standards](INDUSTRY_STANDARDS_GUIDE.md).
+We've implemented a **production-grade hooks system** following enterprise best practices:
+
+| Feature | Before | After |
+|---------|--------|-------|
+| Setup Code | Repeated in each test file | ✅ Centralized in hooks.ts |
+| Test Data | Generated for ALL tests | ✅ Lazy-loaded (on-demand only) |
+| Global State | Multiple beforeEach hooks | ✅ Single fixture system |
+| Browser Lifecycle | Manual management | ✅ Automatic via hooks |
+| Code Reusability | Low | ✅ High (100% reusable) |
+| Test Isolation | Weak | ✅ Strong (independent tests) |
+
+### How It Works
+
+**Hooks System Architecture:**
+```
+hooks.ts
+├── Custom Fixtures
+│   ├── pageObjects (always available)
+│   └── testData (lazy-loaded)
+├── Global Hooks
+│   ├── beforeAll() - runs once
+│   └── afterAll() - runs once
+└── Per-Test Hooks
+    ├── beforeEach() - setup
+    └── afterEach() - teardown + screenshot on failure
+```
+
+### Usage Patterns
+
+**Pattern 1: Page Objects Only**
+```typescript
+test('Scenario: Verify homepage', async ({ pageObjects }) => {
+  const { homePage } = pageObjects;
+  await homePage.navigate();
+});
+```
+
+**Pattern 2: Page Objects + Test Data**
+```typescript
+test('Scenario: Book flight', async ({ pageObjects, testData }) => {
+  const { homePage } = pageObjects;
+  // testData automatically available
+  await homePage.selectTripType(testData.flightSearchCriteria.tripType);
+});
+```
+
+**Pattern 3: Custom Test Data**
+```typescript
+test('Scenario: Custom booking', async ({ pageObjects }) => {
+  const customData = TestSetupHelper.generateCustomTestData(builder =>
+    builder.withSearchCriteria({ fromCity: 'Delhi', adults: 5 })
+  );
+});
+```
+
+### Key Benefits
+- ✅ **Zero Redundancy**: Write test body, hooks handle everything else
+- ✅ **Lazy Loading**: Data generated only when test requests it  
+- ✅ **Auto Screenshots**: Failed tests auto-capture screenshots
+- ✅ **Structured Logging**: Every step logged automatically
+- ✅ **Test Isolation**: Each test independent
+- ✅ **Scalable**: Easy to add new tests
+
+**📖 [Read Full Guide](examples/steps/HOOKS_REFACTORING_GUIDE.md)**
 
 ---
 
 ## Agenda
-- ✅ **What is Browser, Context, Page** (PLAYWRIGHT_FUNDAMENTALS.md)
-- ✅ **Different method types** (PLAYWRIGHT_FUNDAMENTALS.md)
-- ✅ **Test execution flow** (PLAYWRIGHT_FUNDAMENTALS.md)
+- ✅ **Playwright Fundamentals** (PLAYWRIGHT_FUNDAMENTALS.md)
+- ✅ **Browser, Context, Page Concepts** (PLAYWRIGHT_FUNDAMENTALS.md)
+- ✅ **Hooks Framework (NEW)** ⭐ (examples/steps/HOOKS_REFACTORING_GUIDE.md)
 - ✅ **Page Object Model (POM) Pattern** (INDUSTRY_STANDARDS_GUIDE.md)
 - ✅ **Advanced UI Elements** (examples/)
+- ✅ **Test Data Builder Pattern** (examples/utils/testData.ts)
 - ✅ **Handling Alerts, Popups** (examples/pages/)
-- ✅ **Introduction to BDD** (examples/steps/)
+- ✅ **BDD Step Implementation** (examples/steps/)
 - ✅ **Real-time Example: Booking Flow on MakeMyTrip** (examples/)
 
 ## Key Improvements in This Release
 
 | Feature | Status | Location |
 |---------|--------|----------|
-| **Playwright Fundamentals** | ✅ NEW | `PLAYWRIGHT_FUNDAMENTALS.md` |
-| **Browser/Context/Page Explanation** | ✅ NEW | `PLAYWRIGHT_FUNDAMENTALS.md` |
-| **Method Types Reference** | ✅ NEW | `PLAYWRIGHT_FUNDAMENTALS.md` |
-| **Complete Execution Flow** | ✅ NEW | `PLAYWRIGHT_FUNDAMENTALS.md` |
+| **Hooks Framework** | ✅ NEW | `examples/steps/hooks.ts` |
+| **Hooks Guide** | ✅ NEW | `examples/steps/HOOKS_REFACTORING_GUIDE.md` |
+| **Home Page Steps** | ✅ NEW | `examples/steps/home-page/home-page.steps.ts` |
+| **Fixtures System** | ✅ NEW | `examples/steps/hooks.ts` |
+| **Lazy-Loaded Test Data** | ✅ NEW | `examples/steps/hooks.ts` |
+| **Auto Screenshot on Failure** | ✅ NEW | `examples/steps/hooks.ts` |
+| **Playwright Fundamentals** | ✅ | `PLAYWRIGHT_FUNDAMENTALS.md` |
+| **Browser/Context/Page Explanation** | ✅ | `PLAYWRIGHT_FUNDAMENTALS.md` |
+| **Method Types Reference** | ✅ | `PLAYWRIGHT_FUNDAMENTALS.md` |
+| **Complete Execution Flow** | ✅ | `PLAYWRIGHT_FUNDAMENTALS.md` |
 | Environment Configuration (.env) | ✅ | `.env` |
 | Configuration Manager | ✅ | `config/config.ts` |
 | Enterprise POM Pattern | ✅ | `pages/HomePage.ts`, `pages/BookingPage.ts` |
 | Test Data Builder | ✅ | `utils/testData.ts` |
 | Structured Logging | ✅ | `utils/logger.ts` |
-| BDD Tests (Full Implementation) | ✅ | `steps/booking.steps.ts` |
+| BDD Tests (Full Implementation) | ✅ | `steps/booking.steps.ts`, `steps/home-page/home-page.steps.ts` |
 | Type Safety | ✅ | TypeScript interfaces throughout |
 
 ## Page Object Model (POM)

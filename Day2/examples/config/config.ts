@@ -28,7 +28,12 @@ class Config implements ConfigInterface {
   readonly logLevel: string;
 
   constructor() {
-    this.baseUrl = process.env.BASE_URL || 'https://www.makemytrip.com/';
+    // FALLBACK_URL is used when the primary BASE_URL is not set - ensures tests can still run in a default environment
+    // Set FALLBACK_URL=true in .env to run against playwright.dev instead of makemytrip.com
+    const useFallback = process.env.FALLBACK_URL === 'true';
+    this.baseUrl = useFallback ? 
+    'https://playwright.dev/' 
+    : (process.env.BASE_URL || 'https://www.makemytrip.com/');
     this.apiBaseUrl = process.env.API_BASE_URL || 'https://api.makemytrip.com';
     this.browser = process.env.BROWSER || 'chromium';
     this.headless = process.env.HEADLESS !== 'false';
