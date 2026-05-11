@@ -29,15 +29,7 @@ We've implemented a **production-grade hooks system** with:
 
 ## Course Structure
 
-### Day 1: Introduction to TypeScript and Playwright Basics
-- TypeScript fundamentals (types, interfaces, classes)
-- Playwright setup and configuration
-- Basic UI testing concepts
-- Locators and actions
-- Testing UI elements: Input boxes, buttons, labels, logos, images
-- Real-time example: MakeMyTrip navigation
-
-### Day 2: Advanced UI Testing, Page Object Model, and Hooks Framework ⭐
+### Day 1: Advanced UI Testing, Page Object Model, and Hooks Framework ⭐
 - Page Object Model (POM) pattern
 - **[NEW] Hooks Framework** - Corporate-grade fixture system
 - Advanced UI elements: Dropdowns, radio buttons, checkboxes
@@ -46,14 +38,14 @@ We've implemented a **production-grade hooks system** with:
 - Lazy-loaded test data patterns
 - Real-time example: MakeMyTrip booking flow
 
-### Day 3: API Testing and Performance Testing
+### Day 2: API Testing and Performance Testing
 - API testing with Playwright
 - REST API concepts and authentication
 - Performance testing basics
 - Measuring page load times and Core Web Vitals
-- Real-time example: MakeMyTrip API and performance testing
+- Real-time example: MakeMyTrip API and performance testing in BDD
 
-### Day 4: Database Testing and Framework Creation
+### Day 3: Database Testing and Framework Creation
 - Database testing concepts
 - SQL operations in tests
 - Setting up test databases
@@ -61,12 +53,19 @@ We've implemented a **production-grade hooks system** with:
 - Creating complete test frameworks
 - Real-time example: End-to-end MakeMyTrip framework
 
-### Day 5: Interview Preparation & CI/CD
+### Day 4: Interview Preparation & CI/CD
 - Common Playwright SDET interview questions
 - Framework architecture discussions
 - Real-world scenario solutions
 - CI/CD pipeline integration
 - Leadership and mentoring tips
+
+### Day 5: Generative AI Application Testing
+- Testing Gen AI applications
+- RAG systems testing
+- Hallucination detection
+- Prompt optimization and token management
+- BDD execution of Gen AI tests
 
 ## Technologies Covered
 - **Playwright**: End-to-end testing framework
@@ -100,14 +99,15 @@ cp .env.example .env
 ```bash
 npx cucumber-js                    # Run all features
 npx cucumber-js --tags @smoke      # Run specific tags
-npx cucumber-js --dry-run          # Validate without executing
+npm run test:bdd:day1              # Run Day 1 (POM & Hooks) tests
+npm run test:bdd:day2              # Run Day 2 (API & Performance) tests
+npm run test:bdd:day3              # Run Day 3 (E2E & DB) tests
+npm run test:bdd:day5              # Run Day 5 (Gen AI) tests
 ```
 
-**Using Playwright:**
+**Using Playwright (Legacy):**
 ```bash
 npm test                           # Run all tests
-npm run test:day1                  # Day 1 tests
-npm run test:day2                  # Day 2 tests
 npm run test:ui                    # Interactive UI mode
 npm run report                     # View test report
 ```
@@ -130,7 +130,7 @@ npm run report                     # View test report
 
 ```
 Project Structure
-├── Day2/examples/
+├── Day1/examples/
 │   ├── steps/
 │   │   ├── hooks.ts                    ⭐ Core hooks system
 │   │   ├── HOOKS_REFACTORING_GUIDE.md  ⭐ How to use hooks
@@ -194,13 +194,13 @@ The course includes advanced topics for experienced professionals:
 - ✅ Reusable page objects and helpers
 
 ## Quick Navigation
-- **[Day 1 Guide](Day1/README.md)** - TypeScript and Playwright basics
-- **[Day 2 Guide](Day2/README.md)** - POM and Hooks Framework ⭐
-- **[Day 2 Hooks Documentation](Day2/examples/steps/HOOKS_REFACTORING_GUIDE.md)** - Complete hooks guide
-- **[Day 3 Guide](Day3/README.md)** - API and performance testing
-- **[Day 4 Guide](Day4/README.md)** - Database testing and framework
-- **[Day 5 Guide](Day5/README.md)** - Interview preparation
-- **[Examples Guide](Day2/examples/README.md)** - Running the framework
+- **[Day 1 Guide](Day1/README.md)** - POM and Hooks Framework ⭐
+- **[Day 1 Hooks Documentation](Day1/examples/steps/HOOKS_REFACTORING_GUIDE.md)** - Complete hooks guide
+- **[Day 2 Guide](Day2/README.md)** - API and performance testing
+- **[Day 3 Guide](Day3/README.md)** - Database testing and framework
+- **[Day 4 Guide](Day4/README.md)** - Interview preparation & CI/CD
+- **[Day 5 Guide](Day5/README.md)** - Gen AI Testing
+- **[Examples Guide](Day1/examples/README.md)** - Running the framework
 
 ## Support Resources
 - Detailed code examples in each day's folder

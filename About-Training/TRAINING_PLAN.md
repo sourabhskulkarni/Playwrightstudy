@@ -8,71 +8,71 @@ Welcome to the **Playwright & TypeScript Complete Training Course**! This guide 
 
 ### For Absolute Beginners (Start Here!)
 
-1. **[BEGINNER_GUIDE.md](BEGINNER_GUIDE.md)** ⭐
+1. **[BEGINNER_GUIDE.md](../Quick-Guide/BEGINNER_GUIDE.md)** ⭐
    - Complete beginner's introduction
    - What is Playwright and TypeScript?
    - Why we need them?
    - Basic concepts explained
    - **Read this FIRST before anything else**
 
-2. **[DAY1_DETAILED_GUIDE.md](DAY1_DETAILED_GUIDE.md)**
-   - Line-by-line code explanation
-   - TypeScript types in detail
-   - Setting up first test
-   - Running tests
-   - Common mistakes
-
-3. **[DAY2_DETAILED_GUIDE.md](DAY2_DETAILED_GUIDE.md)**
+2. **[DAY1_DETAILED_GUIDE.md](../Day1/README.md)**
    - Page Object Model (POM)
+   - BDD and Cucumber basics
    - Complex UI elements (dropdowns, checkboxes, modals)
-   - BDD approach
-   - Building reusable code
 
-4. **[DAY3_DETAILED_GUIDE.md](DAY3_DETAILED_GUIDE.md)**
-   - REST API concepts
-   - Making API calls
-   - Validating responses
-   - Performance testing
+3. **[DAY2_DETAILED_GUIDE.md](../Day2/README.md)**
+   - API Testing fundamentals
+   - Validating API responses
+   - Performance testing concepts
    - Measuring load times
 
-5. **[DAY4_DETAILED_GUIDE.md](DAY4_DETAILED_GUIDE.md)**
+4. **[DAY3_DETAILED_GUIDE.md](../Day3/README.md)**
    - Database fundamentals
    - SQL operations (CRUD)
    - E2E testing (UI + API + DB)
    - Framework architecture
-   - SDET role preparation
+
+5. **[DAY4_DETAILED_GUIDE.md](../Day4/README.md)**
+   - CI/CD Pipelines
+   - GitHub Actions setup
+   - Interview Preparation for SDETs
+
+6. **[DAY5_DETAILED_GUIDE.md](../Day5/README.md)**
+   - Gen AI Application Testing
+   - RAG Systems and Hallucinations
+   - Safety validation
 
 ### Day-by-Day Structure
 
 ```
-Day 1: Basics
-└─ Learn TypeScript, Playwright fundamentals
-   - Run: npm run test:day1
+Day 1: Advanced UI & POM
+└─ Page objects, BDD, complex elements
+   - Run: npm run test:bdd:day1
    - Location: Day1/examples/
    - Guide: DAY1_DETAILED_GUIDE.md
 
-Day 2: Advanced UI & POM
-└─ Page objects, BDD, complex elements
-   - Run: npm run test:day2
+Day 2: API & Performance
+└─ API testing, load time measurement
+   - Run: npm run test:bdd:day2
    - Location: Day2/examples/
    - Guide: DAY2_DETAILED_GUIDE.md
 
-Day 3: API & Performance
-└─ API testing, load time measurement
-   - Run: npm run test:day3
+Day 3: Database & Framework
+└─ Database testing, complete framework
+   - Run: npm run test:bdd:day3
    - Location: Day3/examples/
    - Guide: DAY3_DETAILED_GUIDE.md
 
-Day 4: Database & Framework
-└─ Database testing, complete framework
-   - Run: npm run test:day4
-   - Location: Day4/examples/
-   - Guide: DAY4_DETAILED_GUIDE.md
-
-Day 5: Interview Prep
+Day 4: Interview Prep & CI/CD
 └─ 20 SDET interview Q&A
-   - Read: InterviewPrep/README.md
+   - Read: Day4/README.md
    - 9-year exp person: SDET architect role
+
+Day 5: Generative AI Application Testing
+└─ Gen AI testing, RAG systems, Hallucinations
+   - Run: npm run test:bdd:day5
+   - Location: Day5/examples/
+   - Guide: DAY5_DETAILED_GUIDE.md
 ```
 
 ---
@@ -84,6 +84,7 @@ Day 5: Interview Prep
 **Before Day 1, everyone reads:**
 1. BEGINNER_GUIDE.md (Main concepts, no coding yet)
 2. README.md (Course overview)
+3. About-Training/TYPESCRIPT_FUNDAMENTALS.md (TypeScript concepts)
 
 **Why?** Everyone gets on same page about what Playwright and TypeScript are.
 
@@ -134,10 +135,10 @@ Day 5: Interview Prep
 - Q&A on HTTP methods
 
 **Hands-on (2 hours):**
-- Study API client implementation
-- Run: `npm run test:day3`
+- Study API client implementation in Day 3
+- Run: `npm run test:bdd:day3`
 - Make API calls manually
-- Understand responses
+- Understand BDD step definitions for API
 
 **Evening:**
 - Performance testing concepts
@@ -155,8 +156,8 @@ Day 5: Interview Prep
 **Hands-on (2 hours):**
 - Study DatabaseHelper class
 - Create test with DB operations
-- Run: `npm run test:day4`
-- Integrate UI + API + DB
+- Run: `npm run test:bdd:day4`
+- Integrate UI + API + DB in BDD format
 
 **Evening:**
 - Framework architecture discussion
@@ -235,17 +236,17 @@ Day 5: Interview Prep
 # Install everything
 npm install
 
-# Run Day 1 tests (basic UI)
-npm run test:day1
+# Run Day 1 tests (POM + BDD)
+npm run test:bdd:day1
 
-# Run Day 2 tests (POM + BDD)
-npm run test:day2
+# Run Day 2 tests (API + Performance BDD)
+npm run test:bdd:day2
 
-# Run Day 3 tests (API + Performance)
-npm run test:day3
+# Run Day 3 tests (Complete E2E BDD)
+npm run test:bdd:day3
 
-# Run Day 4 tests (Complete E2E)
-npm run test:day4
+# Run Day 5 tests (Gen AI BDD)
+npm run test:bdd:day5
 
 # Run all tests
 npm test
@@ -277,15 +278,9 @@ PlaywrightStudy/
 │  ├── TRAINING_PLAN.md           ← This file
 │  └── BDD-NOTES.md               ← BDD reference
 │
-├─ 📖 DAY 1: BASICS
+├─ 📖 DAY 1: ADVANCED UI & POM
 │  └── Day1/
 │      ├── README.md              ← Day 1 summary
-│      └── examples/
-│          └── mmt-basic.spec.ts  ← First test example
-│
-├─ 📖 DAY 2: POM & BDD
-│  └── Day2/
-│      ├── README.md              ← Day 2 summary
 │      ├── BDD-NOTES.md           ← BDD approaches
 │      ├── examples/
 │      │   ├── pages/
@@ -294,30 +289,37 @@ PlaywrightStudy/
 │      │   ├── features/
 │      │   │   └── booking.feature ← BDD feature file
 │      │   ├── steps/
-│      │   │   └── booking.steps.ts ← BDD step definitions (reference)
-│      │   ├── mmt-bdd.spec.ts    ← BDD-style tests ⭐ USE THIS
-│      │   └── mmt-booking.spec.ts ← POM tests
-│      │
-│      └── (Other example files)
+│      │   │   └── booking.steps.ts ← BDD step definitions
+│      │   ├── mmt-bdd.spec.ts    ← Legacy wrapper
+│      │   └── mmt-booking.spec.ts ← Legacy wrapper
 │
-├─ 📖 DAY 3: API & PERFORMANCE
+├─ 📖 DAY 2: API & PERFORMANCE
+│  └── Day2/
+│      ├── README.md              ← Day 2 summary
+│      └── examples/
+│          ├── features/          ← BDD feature files
+│          └── step-definitions/  ← BDD steps
+│
+├─ 📖 DAY 3: DATABASE & FRAMEWORK
 │  └── Day3/
 │      ├── README.md              ← Day 3 summary
 │      └── examples/
-│          ├── mmt-api.spec.ts    ← API testing
-│          └── mmt-performance.spec.ts ← Performance testing
-│
-├─ 📖 DAY 4: DATABASE & FRAMEWORK
-│  └── Day4/
-│      ├── README.md              ← Day 4 summary
-│      └── examples/
 │          ├── DatabaseHelper.ts  ← Database operations
 │          ├── ApiClient.ts       ← Reusable API client
-│          └── e2e-flow.spec.ts   ← Complete E2E test
+│          ├── features/          ← BDD feature files
+│          └── step-definitions/  ← BDD steps
 │
-├─ 💼 DAY 5: INTERVIEW PREP
-│  └── InterviewPrep/
+├─ 💼 DAY 4: INTERVIEW PREP
+│  └── Day4/
 │      └── README.md              ← 20 SDET interview Q&A
+│
+├─ 📖 DAY 5: GEN AI TESTING
+│  └── Day5/
+│      ├── README.md              ← Day 5 summary
+│      └── examples/
+│          ├── frameworks/        ← Core Gen AI Frameworks
+│          ├── features/          ← Gen AI BDD feature files
+│          └── step-definitions/  ← Gen AI BDD steps
 │
 ├─ ⚙️ CONFIGURATION
 │  ├── playwright.config.ts        ← Playwright settings
@@ -596,7 +598,7 @@ For questions: Refer to the detailed guides or ask your trainer!
 | API testing | DAY3_DETAILED_GUIDE.md Part 2-4 |
 | Database testing | DAY4_DETAILED_GUIDE.md Part 1-3 |
 | Interview prep | InterviewPrep/README.md |
-| Running tests | npm run test:day1-4 |
+| Running tests | npm run test:bdd:day3 etc. |
 | Test examples | Day1-4/examples/ |
 | Framework structure | DAY4_DETAILED_GUIDE.md Part 7 |
 | Troubleshooting | Individual day guides |

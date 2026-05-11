@@ -11,13 +11,15 @@
     "test:day1": "playwright test Day1/examples/",
     "test:day2": "playwright test Day2/examples/",
     "test:day3": "playwright test Day3/examples/",
-    "test:day4": "playwright test Day4/examples/",
     "report": "playwright show-report",
     "test:bdd": "cucumber-js",
     "test:bdd:dry-run": "cucumber-js --dry-run",
     "test:bdd:tags": "cucumber-js --tags",
-    "test:bdd:report": "cucumber-js --format json:reports/cucumber_report.json",
-    "test.bdd:report:html": "cucumber-js --format html:reports/cucumber_report.html"
+    "test.bdd:report:html": "cucumber-js --format html:reports/cucumber_report.html",
+    "test:bdd:day1": "cucumber-js -p day1",
+    "test:bdd:day2": "cucumber-js -p day2",
+    "test:bdd:day3": "cucumber-js -p day3",
+    "test:bdd:day5": "cucumber-js -p day5"
   },
   "keywords": [],
   "author": "",

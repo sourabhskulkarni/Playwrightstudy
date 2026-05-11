@@ -1,0 +1,511 @@
+[
+  {
+    "description": "  As a QA Engineer\n  I want to test the travel portal APIs\n  So that I can verify search, booking, and authentication functionality",
+    "elements": [
+      {
+        "description": "",
+        "id": "api-testing-for-travel-portal;get-flight-search-results",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Get flight search results",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 463937299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "the API client is initialized",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\api.steps.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2915899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I search for flights from \"DEL\" to \"BOM\" on \"2024-12-01\"",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\api.steps.ts:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 660200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "the API response status should be 200",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\api.steps.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 938199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "the response should contain a list of flights",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\api.steps.ts:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4475000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 125715000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "api-testing-for-travel-portal;post-booking-request",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Post booking request",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 433465799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 13,
+            "name": "the API client is initialized",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\api.steps.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 718300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I submit a booking request for flight \"FL123\" with passenger \"John Doe\"",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\api.steps.ts:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 680599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "the API response status should be 201",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\api.steps.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 916299
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 126333800
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "api-testing-for-travel-portal;api-authentication",
+        "keyword": "Scenario",
+        "line": 17,
+        "name": "API Authentication",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 385849799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 18,
+            "name": "the API client is initialized",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\api.steps.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 667900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 19,
+            "name": "I login with username \"testuser\" and password \"testpass\"",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\api.steps.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 500299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "the API response status should be 200",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\api.steps.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 681399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "the response should contain an authentication token",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\api.steps.ts:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1619399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 22,
+            "name": "I access the protected profile endpoint with the token",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\api.steps.ts:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 956000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "the API response status should be 200",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\api.steps.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 732699
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 119082100
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "api-testing-for-travel-portal",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "API Testing for Travel Portal",
+    "tags": [],
+    "uri": "Day3\\examples\\features\\api-testing.feature"
+  },
+  {
+    "description": "  As a Performance Engineer\n  I want to measure page loads and resource loads\n  So that I can ensure the web app meets performance thresholds",
+    "elements": [
+      {
+        "description": "",
+        "id": "performance-testing-for-travel-portal;measure-page-load-performance",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Measure page load performance",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 392154900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "the performance testing environment is ready",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\performance.steps.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 995799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I navigate to the MakeMyTrip homepage",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\performance.steps.ts:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 654177700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "the DOM content should load in less than 3000ms",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\performance.steps.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1918299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "the page should be fully loaded in less than 10000ms",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\performance.steps.ts:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1382400
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 274463599
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "performance-testing-for-travel-portal;resource-loading-performance",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Resource loading performance",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 423296300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 13,
+            "name": "the performance testing environment is ready",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\performance.steps.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 901900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I record resource loads on the MakeMyTrip homepage",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\performance.steps.ts:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 648234000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "the number of loaded images should be less than 50",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\performance.steps.ts:50"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1164399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "the number of loaded JS files should be less than 20",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\performance.steps.ts:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1206999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "the number of loaded CSS files should be less than 10",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\performance.steps.ts:58"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1518200
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 148638599
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "performance-testing-for-travel-portal;core-web-vitals-approximation",
+        "keyword": "Scenario",
+        "line": 19,
+        "name": "Core Web Vitals approximation",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 377391400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 20,
+            "name": "the performance testing environment is ready",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\performance.steps.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 555999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "I measure the Largest Contentful Paint (LCP)",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\performance.steps.ts:62"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1258989900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "the LCP should be less than 2500ms",
+            "match": {
+              "location": "Day3\\examples\\step-definitions\\performance.steps.ts:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1422099
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 164043400
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "performance-testing-for-travel-portal",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Performance Testing for Travel Portal",
+    "tags": [],
+    "uri": "Day3\\examples\\features\\performance-testing.feature"
+  }
+]

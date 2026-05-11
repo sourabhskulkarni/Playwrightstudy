@@ -21,12 +21,12 @@
  */
 
 module.exports = {
-    default: {
-        paths: ['Day2/examples/features/**/*.feature'],       // Path to feature files
+    day1: {
+        paths: ['Day1/examples/features/**/*.feature'],       // Path to feature files
         require: [
-            'Day2/examples/support/world.ts',                  // Custom World for shared context
-            'Day2/examples/support/hooks.ts',                  // Hooks for setup and teardown
-            'Day2/examples/step-definitions/**/*.steps.ts'              // Step definitions
+            'Day1/examples/support/world.ts',                  // Custom World for shared context
+            'Day1/examples/support/hooks.ts',                  // Hooks for setup and teardown
+            'Day1/examples/step-definitions/**/*.steps.ts'              // Step definitions
         ],
 
         //Enable TypeScript support without pre-compilation
@@ -53,4 +53,64 @@ module.exports = {
         retry: process.env.CI ? 2 : 0,
         retryTagFilter: process.env.CI ? '@flaky' : undefined, // Only retry scenarios tagged with @flaky in CI
     },
+    day5: {
+        paths: ['Day5/examples/features/**/*.feature'],       // Path to Day 5 feature files
+        require: [
+            'Day5/examples/support/world.ts',                  // Custom World for shared context
+            'Day5/examples/support/hooks.ts',                  // Hooks for setup and teardown
+            'Day5/examples/step-definitions/**/*.steps.ts'     // Step definitions
+        ],
+        requireModule: ['ts-node/register'],
+        format: [
+            'progress-bar',
+            'html:reports/cucumber-report-day5.html',
+            'json:reports/cucumber-report-day5.json'
+        ],
+        formatOptions: {
+            snippetInterface: 'async-await',
+        },
+        strict: true,
+        retry: process.env.CI ? 2 : 0,
+        retryTagFilter: process.env.CI ? '@flaky' : undefined,
+    },
+    day2: {
+        paths: ['Day2/examples/features/**/*.feature'],
+        require: [
+            'Day2/examples/support/world.ts',
+            'Day2/examples/support/hooks.ts',
+            'Day2/examples/step-definitions/**/*.steps.ts'
+        ],
+        requireModule: ['ts-node/register'],
+        format: [
+            'progress-bar',
+            'html:reports/cucumber-report-day2.html',
+            'json:reports/cucumber-report-day2.json'
+        ],
+        formatOptions: {
+            snippetInterface: 'async-await',
+        },
+        strict: true,
+        retry: process.env.CI ? 2 : 0,
+        retryTagFilter: process.env.CI ? '@flaky' : undefined,
+    },
+    day3: {
+        paths: ['Day3/examples/features/**/*.feature'],
+        require: [
+            'Day3/examples/support/world.ts',
+            'Day3/examples/support/hooks.ts',
+            'Day3/examples/step-definitions/**/*.steps.ts'
+        ],
+        requireModule: ['ts-node/register'],
+        format: [
+            'progress-bar',
+            'html:reports/cucumber-report-day3.html',
+            'json:reports/cucumber-report-day3.json'
+        ],
+        formatOptions: {
+            snippetInterface: 'async-await',
+        },
+        strict: true,
+        retry: process.env.CI ? 2 : 0,
+        retryTagFilter: process.env.CI ? '@flaky' : undefined,
+    }
 };

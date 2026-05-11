@@ -149,16 +149,16 @@ console.log(result);
 
 ```bash
 # Basic Gen AI testing
-npx playwright test Day6/examples/gen-ai-basic.spec.ts
+npx cucumber-js -p day6 Day6/examples/features/gen-ai-basic.feature
 
 # RAG pipeline testing
-npx playwright test Day6/examples/gen-ai-rag.spec.ts
+npx cucumber-js -p day6 Day6/examples/features/gen-ai-rag.feature
 
 # Safety & compliance
-npx playwright test Day6/examples/gen-ai-safety.spec.ts
+npx cucumber-js -p day6 Day6/examples/features/gen-ai-safety.feature
 
-# Run all Gen AI tests
-npx playwright test Day6/examples/
+# Run all Gen AI tests using the configured script
+npm run test:bdd:day6
 ```
 
 ### 3. Use in Your Project

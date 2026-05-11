@@ -1,68 +1,94 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Day 3 - API Testing & Performance Concepts', () => {
+test.describe('Day 4 - End-to-End Testing Framework', () => {
   
-  test('Demonstrate API Response Validation Concept', async ({ page }) => {
-    // Navigate to a page
+  test('Demonstrate Complete E2E User Flow', async ({ page }) => {
+    // Step 1: Navigate to starting point
     await page.goto('https://playwright.dev/');
+    await expect(page).toHaveTitle(/Playwright/);
     
-    // Simulate API response handling by checking page response
-    // In real API testing, you'd use page.request
-    const response = await page.goto('https://playwright.dev/');
+    // Step 2: Interact with page
+    const getStartedLink = page.getByRole('link', { name: 'Get started' });
     
-    // Verify successful response
-    expect(response?.status()).toBe(200);
+    // Step 3: Verify interaction is possible
+    await expect(getStartedLink).toBeVisible();
+    
+    // Step 4: Verify expected state
+    const url = page.url();
+    expect(url).toContain('playwright.dev');
   });
 
-  test('Verify Page Load Performance', async ({ page }) => {
-    // Start measuring performance
-    const startTime = Date.now();
+  test('Verify Multi-Step User Scenario', async ({ page }) => {
+    // Step 1: User lands on homepage
+    await page.goto('https://playwright.dev/');
     
+    // Step 2: User sees get started option
+    const button = page.getByRole('link', { name: 'Get started' });
+    await expect(button).toBeVisible();
+    
+    // Step 3: User clicks get started
+    await button.click();
+    
+    // Step 4: User is redirected
+    await page.waitForURL(/.*installation.*/);
+    
+    // Step 5: Verify Installation page loaded
+    await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+  });
+
+  test('Verify Page Navigation Sequence', async ({ page }) => {
+    // Navigation path verification
+    const pages = [
+      'https://playwright.dev/',
+    ];
+    
+    for (const url of pages) {
+      await page.goto(url);
+      const response = await page.goto(url);
+      expect(response?.ok()).toBe(true);
+    }
+  });
+
+  test('Verify Element States During Interaction', async ({ page }) => {
     // Navigate
     await page.goto('https://playwright.dev/');
     
-    // Wait for key content
-    await page.waitForLoadState('domcontentloaded');
+    // Get element
+    const link = page.getByRole('link', { name: 'Get started' });
     
-    const loadTime = Date.now() - startTime;
+    // Verify initial state
+    await expect(link).toBeVisible();
+    await expect(link).toBeEnabled();
     
-    // Verify page loads in reasonable time (10 seconds)
-    expect(loadTime).toBeLessThan(10000);
+    // Verify it has href attribute (proper link)
+    const href = await link.getAttribute('href');
+    expect(href).toBeTruthy();
   });
 
-  test('Verify Network Requests Are Made', async ({ page }) => {
-    let requestCount = 0;
+  test('Verify Complex Selectors Work', async ({ page }) => {
+    // Navigate
+    await page.goto('https://playwright.dev/');
     
-    // Monitor requests
-    page.on('request', () => {
-      requestCount++;
+    // Use various selector strategies
+    const byRole = page.getByRole('link', { name: 'Get started' });
+    const byText = page.getByText('Get started');
+    
+    // Both should find the element
+    await expect(byRole).toBeVisible();
+    await expect(byText).toBeVisible();
+  });
+
+  test('Verify Page Wait Conditions', async ({ page }) => {
+    // Navigate with wait conditions
+    await page.goto('https://playwright.dev/', { 
+      waitUntil: 'networkidle' 
     });
     
-    // Navigate
-    await page.goto('https://playwright.dev/');
+    // Verify page is stable
+    const isNetworkIdle = await page.evaluate(() => {
+      return document.readyState === 'complete';
+    });
     
-    // Verify requests were made
-    expect(requestCount).toBeGreaterThan(0);
-  });
-
-  test('Verify Successful Page Response', async ({ page }) => {
-    // Navigate and capture response
-    const response = await page.goto('https://playwright.dev/');
-    
-    // Verify response
-    expect(response?.ok()).toBe(true);
-    expect(response?.status()).toEqual(200);
-  });
-
-  test('Demonstrate Async Operation Handling', async ({ page }) => {
-    // Navigate
-    await page.goto('https://playwright.dev/');
-    
-    // Wait for specific element to appear (async operation)
-    await page.waitForSelector('text=/Get started/', { timeout: 5000 });
-    
-    // Verify element exists
-    const element = page.getByRole('link', { name: 'Get started' });
-    await expect(element).toBeVisible();
+    expect(isNetworkIdle).toBe(true);
   });
 });

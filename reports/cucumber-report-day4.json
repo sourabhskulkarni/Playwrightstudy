@@ -1,0 +1,275 @@
+[
+  {
+    "description": "  As an automation engineer\n  I want to test the entire booking flow across UI, API, and DB\n  So that I ensure data consistency and full system integration",
+    "elements": [
+      {
+        "description": "",
+        "id": "complete-e2e-flow-with-db-and-api-validation;complete-booking-flow-with-ui,-api,-and-db-validation",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Complete booking flow with UI, API, and DB validation",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 409591199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "the E2E test environment is ready",
+            "match": {
+              "location": "Day4\\examples\\step-definitions\\e2e.steps.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5195999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I perform a UI flight search and select a flight",
+            "match": {
+              "location": "Day4\\examples\\step-definitions\\e2e.steps.ts:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 213747300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I enter traveller details for \"John Doe\" and proceed to payment",
+            "match": {
+              "location": "Day4\\examples\\step-definitions\\e2e.steps.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1317799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "the user and booking should be inserted into the database",
+            "match": {
+              "location": "Day4\\examples\\step-definitions\\e2e.steps.ts:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12849100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the booking should be created successfully via API",
+            "match": {
+              "location": "Day4\\examples\\step-definitions\\e2e.steps.ts:47"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4801499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the database should reflect the pending booking status",
+            "match": {
+              "location": "Day4\\examples\\step-definitions\\e2e.steps.ts:63"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4323699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I retrieve the booking details via API",
+            "match": {
+              "location": "Day4\\examples\\step-definitions\\e2e.steps.ts:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1557200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "the API booking status should be \"confirmed\"",
+            "match": {
+              "location": "Day4\\examples\\step-definitions\\e2e.steps.ts:74"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1917699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the database status should be updated to \"confirmed\"",
+            "match": {
+              "location": "Day4\\examples\\step-definitions\\e2e.steps.ts:80"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2936800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "the UI should display a confirmed booking summary",
+            "match": {
+              "location": "Day4\\examples\\step-definitions\\e2e.steps.ts:88"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1073799
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 111165100
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "complete-e2e-flow-with-db-and-api-validation;api-only-booking-flow",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "API-only booking flow",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 494454099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 19,
+            "name": "the API client is authenticated with \"testuser\" and \"testpass\"",
+            "match": {
+              "location": "Day4\\examples\\step-definitions\\e2e.steps.ts:95"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1094500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 20,
+            "name": "I search flights from \"DEL\" to \"BOM\" via API",
+            "match": {
+              "location": "Day4\\examples\\step-definitions\\e2e.steps.ts:100"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1013399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "the API should return a list of available flights",
+            "match": {
+              "location": "Day4\\examples\\step-definitions\\e2e.steps.ts:112"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 578200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 22,
+            "name": "I create a booking for the first flight via API",
+            "match": {
+              "location": "Day4\\examples\\step-definitions\\e2e.steps.ts:116"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 816399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "the API booking response should be successful",
+            "match": {
+              "location": "Day4\\examples\\step-definitions\\e2e.steps.ts:125"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 178699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "my user profile should contain the new booking",
+            "match": {
+              "location": "Day4\\examples\\step-definitions\\e2e.steps.ts:129"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1509799
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 101141200
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "complete-e2e-flow-with-db-and-api-validation",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Complete E2E Flow with DB and API Validation",
+    "tags": [],
+    "uri": "Day4\\examples\\features\\e2e-flow.feature"
+  }
+]

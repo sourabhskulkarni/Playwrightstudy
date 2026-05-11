@@ -21,18 +21,7 @@ Your team now has comprehensive training materials covering **Playwright and Typ
    
    **Who should read:** Everyone, before anything else
 
-### 2. **DAY1_DETAILED_GUIDE.md** (TypeScript & Basics)
-   - TypeScript fundamentals (types, interfaces, classes)
-   - Playwright architecture
-   - Setting up first test
-   - Understanding selectors
-   - Line-by-line code explanation
-   - Common beginner mistakes
-   - Exercises
-   
-   **Duration:** 4-6 hours (reading + hands-on)
-
-### 3. **DAY2_DETAILED_GUIDE.md** (Page Object Model & BDD)
+### 2. **DAY1_DETAILED_GUIDE.md** (Page Object Model & BDD)
    - Why POM is important (with examples)
    - Creating page objects
    - Complex UI elements (dropdowns, checkboxes, modals)
@@ -43,7 +32,7 @@ Your team now has comprehensive training materials covering **Playwright and Typ
    
    **Duration:** 6-8 hours (reading + hands-on)
 
-### 4. **DAY3_DETAILED_GUIDE.md** (API & Performance Testing)
+### 3. **DAY2_DETAILED_GUIDE.md** (API & Performance Testing)
    - API fundamentals (what is REST?)
    - Making API calls in tests
    - Validating responses
@@ -55,12 +44,12 @@ Your team now has comprehensive training materials covering **Playwright and Typ
    
    **Duration:** 5-7 hours (reading + hands-on)
 
-### 5. **DAY4_DETAILED_GUIDE.md** (Database & Framework)
+### 4. **DAY3_DETAILED_GUIDE.md** (Database & Framework)
    - Database testing concepts
    - SQL operations (CRUD)
    - SQLite for testing
    - Data integrity and relationships
-   - E2E testing (combining UI, API, DB)
+   - E2E testing in BDD format (combining UI, API, DB)
    - Framework architecture
    - Test data management
    - Best practices
@@ -68,15 +57,26 @@ Your team now has comprehensive training materials covering **Playwright and Typ
    
    **Duration:** 7-9 hours (reading + hands-on)
 
-### 6. **DAY5_DETAILED_GUIDE.md** (CI/CD Pipeline) ⭐ NEW!
+### 5. **DAY4_DETAILED_GUIDE.md** (Interview Prep & CI/CD)
+   - Common Playwright SDET interview questions
    - What is CI/CD and why it matters
    - GitHub Actions explained
    - Writing YAML workflow files
    - Automated test execution
-   - Running tests on schedule
    - Integrating K6 and JMeter
-   - Debugging CI/CD issues
-   - Best practices for automation
+   - SDET Architect Role (for 9+ years exp)
+   - Exercises
+   
+   **Duration:** 6-8 hours (reading + hands-on)
+
+### 6. **DAY5_DETAILED_GUIDE.md** (Gen AI Application Testing) ⭐ NEW!
+   - Gen AI testing vs traditional testing
+   - Testing RAG-based applications
+   - Detecting and preventing hallucinations
+   - Prompt engineering and optimization
+   - Token and cost management
+   - Safety, bias, and compliance validation
+   - Integrating Gen AI testing with Playwright BDD
    - Exercises
    
    **Duration:** 6-8 hours (reading + hands-on)
@@ -164,13 +164,22 @@ Your team now has comprehensive training materials covering **Playwright and Typ
 - **steps/booking.steps.ts** - Step definitions (reference)
 
 ### Day 3 Examples
-- **mmt-api.spec.ts** - API testing examples
-- **mmt-performance.spec.ts** - Performance testing examples
+- **features/api-testing.feature** - API tests (BDD format)
+- **features/performance-testing.feature** - Performance tests (BDD format)
+- **step-definitions/** - BDD steps for Day 3
 
 ### Day 4 Examples
 - **DatabaseHelper.ts** - Database operations
-- **ApiClient.ts** - Reusable API client
-- **e2e-flow.spec.ts** - Complete E2E test
+- **ApiClient.ts** - Reusable API client (mocked for learning)
+- **features/e2e-flow.feature** - Complete E2E test in BDD format
+- **step-definitions/e2e.steps.ts** - BDD step definitions for Day 4
+
+### Day 6 Examples ⭐ NEW!
+- **frameworks/** - GenAITestFramework, RAGTestFramework, HallucinationDetector, SafetyValidator
+- **utils/** - TokenManager, CostCalculator, PromptOptimizer
+- **features/gen-ai-basic.feature** - BDD tests for basic Gen AI
+- **features/gen-ai-rag.feature** - BDD tests for RAG systems
+- **features/gen-ai-safety.feature** - BDD tests for safety validation
 
 ### Day 5: CI/CD Examples ⭐ NEW!
 - **.github/workflows/playwright.yml** - GitHub Actions for Playwright tests
@@ -203,14 +212,18 @@ Day 1: 8:00 AM - 5:00 PM (UI & Basics)
 Day 2: 8:00 AM - 5:00 PM (POM & BDD)
 Day 3: 8:00 AM - 5:00 PM (API & Performance Testing)
 Day 4: 8:00 AM - 5:00 PM (Database & E2E Framework)
-Day 5: 8:00 AM - 5:00 PM (CI/CD Pipeline)
+Day 5: 8:00 AM - 5:00 PM (CI/CD Pipeline & Interview Prep)
   - GitHub Actions setup
   - Test automation workflow
+  - SDET Interview prep
   
-Day 6: 8:00 AM - 5:00 PM (Advanced Performance Testing)
+Day 6: 8:00 AM - 5:00 PM (Gen AI Application Testing)
+  - Gen AI testing strategies
+  - BDD execution of RAG and Hallucination tests
+  
+Day 7: 8:00 AM - 5:00 PM (Advanced Performance Testing)
   - K6 load/stress/spike testing
   - JMeter advanced scenarios
-  - Interview preparation
 ```
 
 **Option 2: Part-time (3 weeks)**
@@ -506,6 +519,12 @@ npm run test:day1
 - Optimize performance
 - SDET architect capability (9+ year exp)
 
+### After Day 6: Gen AI Testing ⭐ NEW!
+- Design frameworks for Gen AI testing
+- Build and run RAG tests
+- Automate Hallucination and Safety detection
+- Measure token usage and optimize cost
+
 ---
 
 ## 🎁 Bonus Content Included
@@ -620,30 +639,16 @@ After training:
 8. Design a test framework for a project
 9. Mentor new team members
 10. Lead testing initiatives
-11. **Set up GitHub Actions for automated testing** ⭐ NEW
-12. **Create and run K6 load tests** ⭐ NEW
-13. **Create and run JMeter performance tests** ⭐ NEW
-14. **Interpret performance metrics and reports** ⭐ NEW
-15. **Integrate testing into CI/CD pipeline** ⭐ NEW
-16. **Identify performance bottlenecks** ⭐ NEW
-17. **Establish performance baselines and targets** ⭐ NEW
-18. **Run distributed performance tests** ⭐ NEW
-3. Make API calls and validate responses
-4. Query a database and verify data
-5. Build a complete E2E test with UI + API + DB
-6. Explain why each layer (UI, API, DB) is tested
-7. Answer Playwright/TypeScript interview questions
-8. Design a test framework for a project
-9. Mentor new team members
-10. Lead testing initiatives
-11. **Set up GitHub Actions for automated testing** ⭐ NEW
-12. **Create and run K6 load tests** ⭐ NEW
-13. **Create and run JMeter performance tests** ⭐ NEW
-14. **Interpret performance metrics and reports** ⭐ NEW
-15. **Integrate testing into CI/CD pipeline** ⭐ NEW
-16. **Identify performance bottlenecks** ⭐ NEW
-17. **Establish performance baselines and targets** ⭐ NEW
-18. **Run distributed performance tests** ⭐ NEW
+11. **Test Gen AI Applications and RAG Systems** ⭐ NEW
+12. **Set up GitHub Actions for automated testing** ⭐ NEW
+13. **Create and run K6 load tests** ⭐ NEW
+14. **Create and run JMeter performance tests** ⭐ NEW
+15. **Interpret performance metrics and reports** ⭐ NEW
+16. **Integrate testing into CI/CD pipeline** ⭐ NEW
+17. **Identify performance bottlenecks** ⭐ NEW
+18. **Establish performance baselines and targets** ⭐ NEW
+19. **Run distributed performance tests** ⭐ NEW
+
 
 ---
 
