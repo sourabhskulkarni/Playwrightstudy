@@ -1,4 +1,4 @@
-# Day 6: Generative AI Testing - Complete Detailed Guide
+# Day 5: Generative AI Testing - Complete Detailed Guide
 
 **Created by:** Sourabh Kulkarni - SDET Architect  
 **Duration:** 6-8 hours with hands-on labs  
@@ -587,34 +587,46 @@ DEPLOYMENT
 ## Part 8: Hands-On Labs
 
 ### Lab 1: Basic Gen AI Testing (30 min)
-1. Open [gen-ai-basic.spec.ts](examples/gen-ai-basic.spec.ts)
-2. Understand the test structure
-3. Run: `npx playwright test Day6/examples/gen-ai-basic.spec.ts`
+1. Open [gen-ai-basic.feature](examples/features/gen-ai-basic.feature)
+2. Understand the BDD scenario structure
+3. Run: `npm run test:bdd:day5`
 4. Modify prompts and observe quality score changes
 
 ### Lab 2: RAG Pipeline Testing (45 min)
-1. Open [gen-ai-rag.spec.ts](examples/gen-ai-rag.spec.ts)
+1. Open [gen-ai-rag.feature](examples/features/gen-ai-rag.feature)
 2. Understand retrieval & generation metrics
 3. Add your own test cases
 4. Run tests and analyze metrics
 
 ### Lab 3: Hallucination Detection (45 min)
-1. Open [hallucination-detection.spec.ts](examples/hallucination-detection.spec.ts)
-2. Examine hallucination detection logic
+1. Open [hallucination-detection.feature](examples/features/hallucination-detection.feature)
+2. Examine hallucination detection logic in `HallucinationDetector.ts`
 3. Create custom hallucination test cases
 4. Verify detection accuracy
 
 ### Lab 4: Safety Validation (30 min)
-1. Open [gen-ai-safety.spec.ts](examples/gen-ai-safety.spec.ts)
-2. Understand safety validators
+1. Open [gen-ai-safety.feature](examples/features/gen-ai-safety.feature)
+2. Understand safety validators in `SafetyValidator.ts`
 3. Test with adversarial prompts
 4. Verify safety checks pass
 
-### Lab 5: Prompt Optimization (45 min)
-1. Open [prompt-optimizer.spec.ts](examples/prompt-optimizer.spec.ts)
-2. Compare different prompt strategies
-3. Analyze quality vs cost trade-offs
-4. Select optimal prompt
+### Lab 5: Lexical & Semantic Metrics (45 min)
+1. Open [lexical-metrics.feature](examples/features/lexical-metrics.feature)
+2. Open [semantic-evaluation.feature](examples/features/semantic-evaluation.feature)
+3. Compare BLEU, ROUGE-L, and cosine similarity scores
+4. Understand how quality is measured beyond keyword matching
+
+### Lab 6: Pipeline Gates & A/B Testing (45 min)
+1. Open [pipeline-gates.feature](examples/features/pipeline-gates.feature)
+2. Open [prompt-ab-testing.feature](examples/features/prompt-ab-testing.feature)
+3. Understand deploy/review/block decisions
+4. Run an A/B test and interpret statistical results
+
+### Lab 7: Adversarial & Synthetic Data (30 min)
+1. Open [adversarial-testing.feature](examples/features/adversarial-testing.feature)
+2. Open [synthetic-data.feature](examples/features/synthetic-data.feature)
+3. Understand prompt injection, jailbreak testing
+4. Generate edge cases and multi-turn conversations
 
 ---
 
@@ -664,7 +676,28 @@ DEPLOYMENT
 → Use `SafetyValidator.validateResponse()`
 
 **For Cost:**
-→ Use `TokenManager.trackTokens()` and `CostCalculator.calculateCost()`
+→ Use `TokenManager.trackTokens()` and `CostCalculator.addCost()`
+
+**For Lexical Quality:**
+→ Use `LexicalMetrics.evaluate()` (BLEU, ROUGE-L, Levenshtein)
+
+**For Semantic Quality:**
+→ Use `SemanticEvaluator.evaluate()` (TF-IDF cosine similarity)
+
+**For Groundedness:**
+→ Use `GroundednessScorer.scoreGroundedness()`
+
+**For Pipeline Gates:**
+→ Use `PipelineGates.evaluate()` (deploy/review/block)
+
+**For Prompt A/B Testing:**
+→ Use `PromptABHarness.runABTest()`
+
+**For Adversarial Testing:**
+→ Use `AdversarialTester.testAttack()` or `.runFullSuite()`
+
+**For Synthetic Data:**
+→ Use `SyntheticDataGenerator.generateTestPrompts()` / `.generateEdgeCases()`
 
 ---
 

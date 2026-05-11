@@ -76,7 +76,10 @@ Your team now has comprehensive training materials covering **Playwright and Typ
    - Prompt engineering and optimization
    - Token and cost management
    - Safety, bias, and compliance validation
-   - Integrating Gen AI testing with Playwright BDD
+   - **13 Gen AI Testing Concepts** in Cucumber BDD
+   - Lexical Metrics, Semantic Evaluators, Groundedness Scoring
+   - Pipeline Quality Gates, Prompt A/B Testing
+   - Adversarial Testing, Synthetic Data Generation
    - Exercises
    
    **Duration:** 6-8 hours (reading + hands-on)
@@ -174,12 +177,12 @@ Your team now has comprehensive training materials covering **Playwright and Typ
 - **features/e2e-flow.feature** - Complete E2E test in BDD format
 - **step-definitions/e2e.steps.ts** - BDD step definitions for Day 4
 
-### Day 6 Examples ⭐ NEW!
-- **frameworks/** - GenAITestFramework, RAGTestFramework, HallucinationDetector, SafetyValidator
-- **utils/** - TokenManager, CostCalculator, PromptOptimizer
-- **features/gen-ai-basic.feature** - BDD tests for basic Gen AI
-- **features/gen-ai-rag.feature** - BDD tests for RAG systems
-- **features/gen-ai-safety.feature** - BDD tests for safety validation
+### Day 5 Examples ⭐ NEW!
+- **frameworks/** - GenAITestFramework, RAGTestFramework, HallucinationDetector, SafetyValidator, LexicalMetrics, SemanticEvaluator, GroundednessScorer, LLMClientInterface, PipelineGates, PromptABHarness, SyntheticDataGenerator, AdversarialTester
+- **utils/** - TokenManager, CostCalculator, PromptOptimizer, ResponseValidator
+- **features/** - 13 BDD feature files covering all Gen AI testing concepts
+- **step-definitions/** - gen-ai.steps.ts + advanced-gen-ai.steps.ts
+- **support/** - world.ts + hooks.ts
 
 ### Day 5: CI/CD Examples ⭐ NEW!
 - **.github/workflows/playwright.yml** - GitHub Actions for Playwright tests
@@ -519,11 +522,16 @@ npm run test:day1
 - Optimize performance
 - SDET architect capability (9+ year exp)
 
-### After Day 6: Gen AI Testing ⭐ NEW!
+### After Day 5: Gen AI Testing ⭐ NEW!
 - Design frameworks for Gen AI testing
 - Build and run RAG tests
 - Automate Hallucination and Safety detection
 - Measure token usage and optimize cost
+- Implement lexical & semantic evaluation metrics
+- Run pipeline quality gates (deploy/review/block)
+- Perform prompt A/B testing with statistical analysis
+- Test adversarial attacks (injection, jailbreak)
+- Generate synthetic test data for edge cases
 
 ---
 
@@ -586,9 +594,9 @@ After completing:
 - **Days 1-4 + exercises** → **Playwright Foundation**
 - **Days 1-4 + real project** → **Test Automation Expert**
 - **Days 1-5 (CI/CD)** → **DevOps Automation Engineer**
-- **Days 1-5 + K6 & JMeter** → **Performance Testing Specialist**
+- **Days 1-5 + Gen AI testing** → **AI Quality Assurance Specialist**
 - **Days 1-5 + mentoring others** → **SDET Engineer**
-- **Days 1-6 + team lead + architecture** → **SDET Architect** (for 9+ year exp)
+- **Days 1-5 + team lead + architecture** → **SDET Architect** (for 9+ year exp)
 
 ---
 

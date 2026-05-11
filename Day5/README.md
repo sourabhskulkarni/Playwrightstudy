@@ -1,15 +1,15 @@
-# Day 6: Generative AI Application Testing - Complete Implementation Guide
+# Day 5: Generative AI Application Testing — Complete Implementation Guide
 
 **Created by:** Sourabh Kulkarni - SDET Architect  
-**Version:** 1.0 - Production Ready  
-**Focus:** Practical Gen AI & LLM Testing with Playwright  
+**Version:** 2.0 - Comprehensive Gen AI Testing Suite  
+**Focus:** Practical Gen AI & LLM Testing with Playwright + Cucumber BDD  
 **Duration:** 6-8 hours training + hands-on implementation  
 
 ---
 
 ## 🎯 What You'll Learn Today
 
-By the end of Day 6, you'll be a **Gen AI Tester** - capable of testing any Generative AI application with:
+By the end of Day 5, you'll be a **Gen AI Tester** — capable of testing any Generative AI application with:
 
 ✅ **Core Skills:**
 - Design Gen AI test frameworks
@@ -19,20 +19,18 @@ By the end of Day 6, you'll be a **Gen AI Tester** - capable of testing any Gene
 - Validate safety & compliance
 - Monitor AI performance
 
-✅ **Hands-On Implementation:**
-- 5+ ready-to-run Gen AI tests
-- Framework classes for AI testing
-- Hallucination detection system
-- Token & cost management
-- Safety validation suite
-- Playwright AI app automation
+✅ **Advanced AI Testing Concepts:**
+- Lexical Metrics (BLEU, ROUGE-L, Levenshtein)
+- Semantic Evaluators (TF-IDF cosine similarity, topic coverage)
+- LLM Groundedness Scoring (claim verification against sources)
+- LLM Client Interface (typed, swappable API abstraction)
+- RAG Pipeline Evaluation (retrieval + generation metrics)
+- Pipeline Quality Gates (deploy/review/block decisions)
+- Prompt A/B Testing Harness (statistical significance testing)
+- Synthetic Data Generation (edge cases, adversarial, multi-turn)
+- Adversarial Testing (prompt injection, jailbreak, data exfiltration)
 
-✅ **Real-World Application:**
-- Test chat applications
-- Test RAG systems
-- Test LLM integrations
-- Test AI-powered features
-- Enterprise AI deployment
+✅ **All tests in Cucumber BDD format** — no legacy spec.ts files
 
 ---
 
@@ -48,234 +46,183 @@ By the end of Day 6, you'll be a **Gen AI Tester** - capable of testing any Gene
 
 ### Part 2: RAG & Retrieval Systems (90 min)
 1. RAG architecture understanding
-2. Retrieval testing metrics
-3. Context validation
+2. Retrieval testing metrics (Recall@K, Precision@K)
+3. Groundedness scoring
 4. Citation accuracy
 
-**Read:** [DAY6_DETAILED_GUIDE.md](DAY6_DETAILED_GUIDE.md) - Part 3  
-**Code:** [gen-ai-rag.spec.ts](examples/gen-ai-rag.spec.ts)
+**Feature:** [gen-ai-rag.feature](examples/features/gen-ai-rag.feature)  
+**Feature:** [groundedness-scoring.feature](examples/features/groundedness-scoring.feature)
 
-### Part 3: Prompt & Safety (90 min)
-1. Prompt engineering strategies
-2. Prompt optimization testing
-3. Hallucination detection
+### Part 3: Quality Metrics & Evaluation (90 min)
+1. Lexical metrics (BLEU, ROUGE-L, Levenshtein)
+2. Semantic evaluation (cosine similarity, topic coverage)
+3. Pipeline quality gates
+4. LLM client interfaces
+
+**Feature:** [lexical-metrics.feature](examples/features/lexical-metrics.feature)  
+**Feature:** [semantic-evaluation.feature](examples/features/semantic-evaluation.feature)  
+**Feature:** [pipeline-gates.feature](examples/features/pipeline-gates.feature)
+
+### Part 4: Prompt Engineering & Safety (90 min)
+1. Prompt optimization strategies
+2. A/B testing for prompts
+3. Adversarial testing (injection, jailbreak)
 4. Safety & bias validation
+5. Synthetic data generation
 
-**Read:** [DAY6_DETAILED_GUIDE.md](DAY6_DETAILED_GUIDE.md) - Parts 4-5  
-**Code:** [prompt-optimizer.spec.ts](examples/prompt-optimizer.spec.ts)  
-**Code:** [gen-ai-safety.spec.ts](examples/gen-ai-safety.spec.ts)
-
-### Part 4: Implementation & Automation (90 min)
-1. Playwright for Gen AI apps
-2. Framework usage
-3. Hands-on testing
-4. Best practices
-
-**Code:** [gen-ai-basic.spec.ts](examples/gen-ai-basic.spec.ts)  
-**Code:** [frameworks/](examples/frameworks/) - All framework classes
+**Feature:** [prompt-optimization.feature](examples/features/prompt-optimization.feature)  
+**Feature:** [prompt-ab-testing.feature](examples/features/prompt-ab-testing.feature)  
+**Feature:** [gen-ai-safety.feature](examples/features/gen-ai-safety.feature)  
+**Feature:** [adversarial-testing.feature](examples/features/adversarial-testing.feature)  
+**Feature:** [synthetic-data.feature](examples/features/synthetic-data.feature)
 
 ### Part 5: Advanced Topics (60 min)
 1. Token & cost management
-2. Performance monitoring
-3. Maturity assessment
+2. Hallucination detection
+3. Performance monitoring
 4. Production deployment
 
-**Read:** [DAY6_DETAILED_GUIDE.md](DAY6_DETAILED_GUIDE.md) - Part 6
+**Feature:** [token-cost-management.feature](examples/features/token-cost-management.feature)  
+**Feature:** [hallucination-detection.feature](examples/features/hallucination-detection.feature)
 
 ---
 
 ## 🗂️ Files Structure
 
 ```
-Day6/
-├── README.md                                  ← You are here
-├── DAY6_DETAILED_GUIDE.md                    ← Complete training guide
+Day5/
+├── README.md                                    ← You are here
+├── DAY6_DETAILED_GUIDE.md                       ← Complete training guide
 │
 └── examples/
-    ├── gen-ai-basic.spec.ts                  ← Basic Gen AI testing
-    ├── gen-ai-rag.spec.ts                    ← RAG pipeline testing
-    ├── gen-ai-safety.spec.ts                 ← Safety & compliance
-    ├── hallucination-detection.spec.ts       ← Hallucination testing
-    ├── prompt-optimizer.spec.ts              ← Prompt engineering
-    ├── token-management.spec.ts              ← Cost tracking
+    ├── features/                                ← BDD Feature Files (Gherkin)
+    │   ├── gen-ai-basic.feature                 ← Basic response quality & consistency
+    │   ├── gen-ai-rag.feature                   ← RAG pipeline testing
+    │   ├── gen-ai-safety.feature                ← Safety & compliance
+    │   ├── hallucination-detection.feature       ← Hallucination testing
+    │   ├── lexical-metrics.feature              ← BLEU, ROUGE-L, Levenshtein
+    │   ├── semantic-evaluation.feature          ← Cosine similarity, topic coverage
+    │   ├── groundedness-scoring.feature         ← Claim grounding verification
+    │   ├── pipeline-gates.feature               ← Quality gate evaluation
+    │   ├── prompt-optimization.feature          ← Strategy comparison
+    │   ├── prompt-ab-testing.feature            ← Statistical A/B testing
+    │   ├── token-cost-management.feature        ← Token tracking & budgets
+    │   ├── synthetic-data.feature               ← Test data generation
+    │   └── adversarial-testing.feature          ← Security attack testing
     │
-    ├── frameworks/
-    │   ├── GenAITestFramework.ts            ← Core framework
-    │   ├── RAGTestFramework.ts              ← RAG testing
-    │   ├── HallucinationDetector.ts         ← Hallucination detection
-    │   └── SafetyValidator.ts               ← Safety testing
+    ├── step-definitions/                        ← BDD Step Definitions
+    │   ├── gen-ai.steps.ts                      ← Core Gen AI steps
+    │   └── advanced-gen-ai.steps.ts             ← Advanced concept steps
     │
-    └── utils/
-        ├── TokenManager.ts                  ← Token counting
-        ├── PromptOptimizer.ts              ← Prompt optimization
-        ├── CostCalculator.ts               ← Cost tracking
-        └── ResponseValidator.ts            ← Response validation
+    ├── support/                                 ← BDD Support Files
+    │   ├── world.ts                             ← Custom World with all frameworks
+    │   └── hooks.ts                             ← Before/After hooks
+    │
+    ├── frameworks/                              ← Core Gen AI Framework Classes
+    │   ├── GenAITestFramework.ts                ← Core quality evaluation
+    │   ├── RAGTestFramework.ts                  ← RAG pipeline testing
+    │   ├── HallucinationDetector.ts             ← Hallucination detection
+    │   ├── SafetyValidator.ts                   ← Safety & PII validation
+    │   ├── LexicalMetrics.ts                    ← BLEU, ROUGE-L, Levenshtein
+    │   ├── SemanticEvaluator.ts                 ← TF-IDF cosine similarity
+    │   ├── GroundednessScorer.ts                ← Claim grounding scorer
+    │   ├── LLMClientInterface.ts                ← Typed ILLMClient + MockLLMClient
+    │   ├── PipelineGates.ts                     ← Quality gate system
+    │   ├── PromptABHarness.ts                   ← Statistical A/B testing
+    │   ├── SyntheticDataGenerator.ts            ← Test data generator
+    │   └── AdversarialTester.ts                 ← Security attack tester
+    │
+    └── utils/                                   ← Utility Classes
+        ├── TokenManager.ts                      ← Token counting & limits
+        ├── PromptOptimizer.ts                   ← Prompt strategy comparison
+        ├── CostCalculator.ts                    ← API cost tracking
+        └── ResponseValidator.ts                 ← Response format validation
 ```
 
 ---
 
 ## 🚀 Quick Start
 
-### 1. Understand the Frameworks
-
-```typescript
-// GenAITestFramework - Your main tool
-import { GenAITestFramework } from './frameworks/GenAITestFramework';
-
-const framework = new GenAITestFramework({
-  apiClient: openaiClient,
-  knowledgeBase: documentStore,
-  config: { qualityThreshold: 0.85 }
-});
-
-// Test a response
-const result = await framework.testAIResponse('What is AI?', {
-  expectedQuality: 0.8,
-  checkHallucinations: true,
-  validateCitations: true
-});
-
-console.log(result);
-// {
-//   qualityScore: 0.87,
-//   hallucinations: [],
-//   tokensUsed: 45,
-//   cost: $0.002,
-//   citations: ['source1.pdf', 'source2.pdf']
-// }
-```
-
-### 2. Run Example Tests
-
+### Run All Day 5 Gen AI BDD Tests
 ```bash
-# Basic Gen AI testing
-npx cucumber-js -p day6 Day6/examples/features/gen-ai-basic.feature
-
-# RAG pipeline testing
-npx cucumber-js -p day6 Day6/examples/features/gen-ai-rag.feature
-
-# Safety & compliance
-npx cucumber-js -p day6 Day6/examples/features/gen-ai-safety.feature
-
-# Run all Gen AI tests using the configured script
-npm run test:bdd:day6
+npm run test:bdd:day5
 ```
 
-### 3. Use in Your Project
+### Run Specific Feature
+```bash
+# Basic quality testing
+npx cucumber-js -p day5 --name "Basic Generative AI"
 
-```typescript
-// In your test file
-import { GenAITestFramework } from '../Day6/examples/frameworks/GenAITestFramework';
+# Lexical metrics
+npx cucumber-js -p day5 --name "Lexical Metrics"
 
-test('My AI feature', async () => {
-  const framework = new GenAITestFramework(config);
-  const result = await framework.testAIResponse(
-    'user query',
-    { expectedQuality: 0.85 }
-  );
-  expect(result.qualityScore).toBeGreaterThan(0.85);
-  expect(result.hallucinations).toHaveLength(0);
-});
+# Pipeline gates
+npx cucumber-js -p day5 --name "Pipeline Quality Gates"
+
+# Adversarial testing
+npx cucumber-js -p day5 --name "Adversarial Testing"
+```
+
+### Dry Run (validate steps are wired)
+```bash
+npx cucumber-js -p day5 --dry-run
 ```
 
 ---
 
-## 📊 Key Concepts
+## 📊 Gen AI Testing Concepts Covered
+
+### Complete Coverage Matrix
+
+| # | Concept | Framework Class | Feature File |
+|---|---------|----------------|--------------|
+| 1 | Lexical Metrics (BLEU/ROUGE) | `LexicalMetrics.ts` | `lexical-metrics.feature` |
+| 2 | Semantic Evaluators | `SemanticEvaluator.ts` | `semantic-evaluation.feature` |
+| 3 | LLM Groundedness Scorer | `GroundednessScorer.ts` | `groundedness-scoring.feature` |
+| 4 | LLM Client Interface | `LLMClientInterface.ts` | (used across all tests) |
+| 5 | RAG Pipeline Evaluator | `RAGTestFramework.ts` | `gen-ai-rag.feature` |
+| 6 | Pipeline Gates | `PipelineGates.ts` | `pipeline-gates.feature` |
+| 7 | Prompt A/B Harness | `PromptABHarness.ts` | `prompt-ab-testing.feature` |
+| 8 | Synthetic Data Generator | `SyntheticDataGenerator.ts` | `synthetic-data.feature` |
+| 9 | Hallucination Detection | `HallucinationDetector.ts` | `hallucination-detection.feature` |
+| 10 | Safety & Compliance | `SafetyValidator.ts` | `gen-ai-safety.feature` |
+| 11 | Adversarial Testing | `AdversarialTester.ts` | `adversarial-testing.feature` |
+| 12 | Token & Cost Management | `TokenManager.ts` + `CostCalculator.ts` | `token-cost-management.feature` |
+| 13 | Prompt Optimization | `PromptOptimizer.ts` | `prompt-optimization.feature` |
 
 ### Gen AI Testing Pyramid
 
 ```
                     ▲
                    ╱ ╲
-                  ╱   ╲  Safety & Compliance
+                  ╱   ╲  Adversarial & Security
                  ╱     ╲ (5%)
                 ╱───────╲
-               ╱         ╲ Performance Testing
-              ╱           ╲ (15%)
+               ╱         ╲ Safety & Compliance
+              ╱           ╲ (10%)
              ╱─────────────╲
-            ╱               ╲ Functional Testing
-           ╱                 ╲ (30%)
+            ╱               ╲ Pipeline Gates & Quality
+           ╱                 ╲ (20%)
           ╱───────────────────╲
-         ╱                     ╲ Basic Response Testing
-        ╱                       ╲ (50%)
+         ╱                     ╲ RAG, Groundedness, Semantic
+        ╱                       ╲ (25%)
        ╱─────────────────────────╲
-```
-
-### Quality Score Calculation
-
-```
-Quality Score = 
-  Relevance (40%) × 
-  Accuracy (30%) × 
-  Completeness (20%) × 
-  Clarity (10%)
-
-Target: > 0.85 / 1.0
-```
-
-### Hallucination Detection Flow
-
-```
-Response Text
-    ↓
-Extract Claims
-    ↓
-Verify Against Knowledge Base
-    ↓
-Check for Contradictions
-    ↓
-Identify Unsupported Statements
-    ↓
-Classify: Fabrication / Contradiction / Omission
-    ↓
-Generate Report
+      ╱                           ╲ Lexical, Basic Response, Cost
+     ╱                             ╲ (40%)
+    ╱───────────────────────────────╲
 ```
 
 ---
 
 ## 🎯 Learning Outcomes
 
-After completing Day 6, you will:
+After completing Day 5, you will:
 
-✅ **Understand:**
-- How to test Generative AI applications
-- RAG systems and testing strategies
-- Prompt engineering and optimization
-- Hallucination prevention
-- Safety and compliance requirements
+✅ **Understand:** Gen AI testing, RAG systems, hallucination detection, prompt engineering, safety/compliance, adversarial attacks
 
-✅ **Can Implement:**
-- Gen AI test frameworks
-- RAG pipeline tests
-- Safety validators
-- Token/cost managers
-- Playwright automation for Gen AI
+✅ **Can Implement:** All 13 Gen AI testing concepts in BDD format with reusable framework classes
 
-✅ **Can Deploy:**
-- Production-ready Gen AI tests
-- CI/CD integration
-- Monitoring and alerting
-- Performance benchmarking
-- Compliance validation
-
----
-
-## 📚 Related Materials
-
-- **Interview Questions:** [InterviewPrep/README.md](../InterviewPrep/README.md) - Questions 56-65 (Gen AI)
-- **Framework Guide:** [GEN_AI_TESTING_FRAMEWORK.md](../GEN_AI_TESTING_FRAMEWORK.md) - Theory & concepts
-- **Previous Days:** Day 1-5 for foundations
-
----
-
-## 🏆 By Day 6 Completion
-
-You'll be ready for:
-- ✅ Gen AI Testing Engineer roles
-- ✅ AI-Driven Automation Lead positions
-- ✅ LLM Quality Assurance roles
-- ✅ AI Product Testing Manager positions
-- ✅ Any Gen AI testing interviews
+✅ **Can Deploy:** Production-ready Gen AI test suites with CI/CD integration, quality gates, and monitoring
 
 ---
 
@@ -284,4 +231,3 @@ You'll be ready for:
 **Last Updated:** May 11, 2026
 
 Next → Start with [DAY6_DETAILED_GUIDE.md](DAY6_DETAILED_GUIDE.md)
-

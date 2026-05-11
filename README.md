@@ -60,23 +60,28 @@ We've implemented a **production-grade hooks system** with:
 - CI/CD pipeline integration
 - Leadership and mentoring tips
 
-### Day 5: Generative AI Application Testing
-- Testing Gen AI applications
-- RAG systems testing
-- Hallucination detection
-- Prompt optimization and token management
-- BDD execution of Gen AI tests
+### Day 5: Generative AI Application Testing ⭐
+- **13 Gen AI Testing Concepts** — all in Cucumber BDD format
+- Lexical Metrics (BLEU, ROUGE-L, Levenshtein)
+- Semantic Evaluators (TF-IDF cosine similarity)
+- LLM Groundedness Scoring & Client Interface
+- RAG Pipeline Evaluation & Pipeline Quality Gates
+- Prompt A/B Testing Harness (statistical significance)
+- Synthetic Data Generation & Adversarial Testing
+- Hallucination Detection & Safety Validation
+- Token & Cost Management
 
 ## Technologies Covered
 - **Playwright**: End-to-end testing framework
 - **TypeScript**: Type-safe JavaScript
 - **BDD**: Behavior Driven Development with Gherkin
 - **Cucumber-JS**: BDD test runner
-- **Hooks Framework**: Centralized fixture management (NEW)
+- **Hooks Framework**: Centralized fixture management
 - **Page Object Model**: UI abstraction pattern
 - **API Testing**: REST API validation
 - **Database Testing**: SQL and NoSQL validation
 - **Performance Testing**: Load time and resource monitoring
+- **Gen AI Testing**: LLM quality, RAG, hallucination, safety, adversarial
 - **K6 & JMeter**: Load testing tools
 
 ## Project Setup
@@ -171,6 +176,8 @@ By the end of this course, participants will be able to:
 - Implement BDD practices with Cucumber
 - Perform performance testing
 - Debug and troubleshoot test failures
+- **Test Generative AI applications** (RAG, hallucinations, safety, adversarial)
+- **Implement Gen AI quality gates** (lexical, semantic, groundedness metrics)
 - Prepare for SDET interviews
 
 ## For Senior Roles

@@ -19,6 +19,7 @@
 8. [Safety & Compliance](#safety-compliance)
 9. [Monitoring & Observability](#monitoring)
 10. [KPIs & Maturity](#kpis)
+11. [Implemented BDD Framework (Day 5)](#implemented-framework)
 
 ---
 
@@ -780,6 +781,31 @@ async function assessMaturity(): Promise<MaturityLevel> {
 - ✗ Trust single evaluation method
 - ✗ Neglect performance monitoring
 - ✗ Forget about compliance requirements
+
+---
+
+## 🧪 Implemented BDD Framework (Day 5) {#implemented-framework}
+
+All concepts above are **fully implemented** in the Day 5 Cucumber BDD framework:
+
+| # | Concept | Framework Class | BDD Feature File |
+|---|---------|----------------|------------------|
+| 1 | Lexical Metrics (BLEU/ROUGE-L/Levenshtein) | `LexicalMetrics.ts` | `lexical-metrics.feature` |
+| 2 | Semantic Evaluators (TF-IDF Cosine) | `SemanticEvaluator.ts` | `semantic-evaluation.feature` |
+| 3 | LLM Groundedness Scorer | `GroundednessScorer.ts` | `groundedness-scoring.feature` |
+| 4 | LLM Client Interface (ILLMClient + Mock) | `LLMClientInterface.ts` | (used across all) |
+| 5 | RAG Pipeline Evaluator | `RAGTestFramework.ts` | `gen-ai-rag.feature` |
+| 6 | Pipeline Quality Gates | `PipelineGates.ts` | `pipeline-gates.feature` |
+| 7 | Prompt A/B Testing Harness | `PromptABHarness.ts` | `prompt-ab-testing.feature` |
+| 8 | Synthetic Data Generator | `SyntheticDataGenerator.ts` | `synthetic-data.feature` |
+| 9 | Hallucination Detection | `HallucinationDetector.ts` | `hallucination-detection.feature` |
+| 10 | Safety & Compliance Validator | `SafetyValidator.ts` | `gen-ai-safety.feature` |
+| 11 | Adversarial Tester | `AdversarialTester.ts` | `adversarial-testing.feature` |
+| 12 | Token & Cost Management | `TokenManager.ts` + `CostCalculator.ts` | `token-cost-management.feature` |
+| 13 | Prompt Optimization | `PromptOptimizer.ts` | `prompt-optimization.feature` |
+
+**Run all tests:** `npm run test:bdd:day5`  
+**Location:** `Day5/examples/`
 
 ---
 

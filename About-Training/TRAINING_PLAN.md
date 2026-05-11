@@ -38,9 +38,12 @@ Welcome to the **Playwright & TypeScript Complete Training Course**! This guide 
    - Interview Preparation for SDETs
 
 6. **[DAY5_DETAILED_GUIDE.md](../Day5/README.md)**
-   - Gen AI Application Testing
-   - RAG Systems and Hallucinations
-   - Safety validation
+   - Gen AI Application Testing (13 concepts)
+   - Lexical Metrics, Semantic Evaluators, Groundedness Scoring
+   - RAG Pipeline Evaluation, Pipeline Quality Gates
+   - LLM Client Interface, Prompt A/B Harness
+   - Synthetic Data Generation, Adversarial Testing
+   - Hallucination Detection, Safety Validation
 
 ### Day-by-Day Structure
 
@@ -68,11 +71,13 @@ Day 4: Interview Prep & CI/CD
    - Read: Day4/README.md
    - 9-year exp person: SDET architect role
 
-Day 5: Generative AI Application Testing
-└─ Gen AI testing, RAG systems, Hallucinations
+Day 5: Generative AI Application Testing ⭐
+└─ 13 Gen AI testing concepts in Cucumber BDD
    - Run: npm run test:bdd:day5
    - Location: Day5/examples/
-   - Guide: DAY5_DETAILED_GUIDE.md
+   - 13 feature files, 12 framework classes, 4 utils
+   - Concepts: Lexical, Semantic, Groundedness, RAG,
+     Pipeline Gates, A/B Harness, Adversarial, Safety
 ```
 
 ---
@@ -164,18 +169,27 @@ Day 5: Generative AI Application Testing
 - Best practices review
 - Preparation for Day 5
 
-### Day 5: Interview Preparation
+### Day 5: Generative AI Application Testing
 
-**Morning:**
-- Review: InterviewPrep/README.md
-- 20 SDET interview questions
-- Group discussion
+**Morning (3 hours):**
+- Read: Day5/README.md
+- Gen AI testing foundations
+- LLM Client Interface & RAG pipelines
+- Lexical Metrics (BLEU, ROUGE-L)
+- Semantic Evaluators (TF-IDF cosine similarity)
 
-**Senior Person (9+ years):**
-- Discuss SDET architect role
-- Framework design patterns
-- Team leadership
-- Technical mentoring
+**Hands-on (3 hours):**
+- Groundedness Scoring & Hallucination Detection
+- Pipeline Quality Gates (deploy/review/block)
+- Prompt A/B Testing Harness
+- Adversarial Testing (injection, jailbreak)
+- Safety Validation & Synthetic Data Generation
+- Run: `npm run test:bdd:day5`
+
+**Evening:**
+- Token & Cost Management
+- Review all 13 Gen AI concepts
+- Production deployment discussion
 
 **Others:**
 - Practice interview questions
@@ -313,13 +327,27 @@ PlaywrightStudy/
 │  └── Day4/
 │      └── README.md              ← 20 SDET interview Q&A
 │
-├─ 📖 DAY 5: GEN AI TESTING
+├─ 📖 DAY 5: GEN AI TESTING (13 Concepts) ⭐
 │  └── Day5/
 │      ├── README.md              ← Day 5 summary
 │      └── examples/
-│          ├── frameworks/        ← Core Gen AI Frameworks
-│          ├── features/          ← Gen AI BDD feature files
-│          └── step-definitions/  ← Gen AI BDD steps
+│          ├── frameworks/        ← 12 Gen AI Framework classes
+│          │   ├── GenAITestFramework.ts    ← Core quality eval
+│          │   ├── RAGTestFramework.ts      ← RAG pipeline
+│          │   ├── HallucinationDetector.ts ← Hallucination
+│          │   ├── SafetyValidator.ts       ← Safety & PII
+│          │   ├── LexicalMetrics.ts        ← BLEU/ROUGE-L
+│          │   ├── SemanticEvaluator.ts     ← TF-IDF cosine
+│          │   ├── GroundednessScorer.ts    ← Claim grounding
+│          │   ├── LLMClientInterface.ts    ← Typed API client
+│          │   ├── PipelineGates.ts         ← Quality gates
+│          │   ├── PromptABHarness.ts       ← A/B testing
+│          │   ├── SyntheticDataGenerator.ts← Test data gen
+│          │   └── AdversarialTester.ts     ← Security testing
+│          ├── features/          ← 13 BDD feature files
+│          ├── step-definitions/  ← Gen AI BDD steps
+│          ├── support/           ← world.ts + hooks.ts
+│          └── utils/             ← Token, Cost, Prompt utils
 │
 ├─ ⚙️ CONFIGURATION
 │  ├── playwright.config.ts        ← Playwright settings
@@ -450,12 +478,15 @@ in VS Code, everyone does exercises.
 - ✓ Design framework architecture
 - ✓ Build reusable utilities
 
-### By Day 5 (Senior Developer), Should:
-- ✓ Master framework design
-- ✓ Mentor team members
-- ✓ Design test strategies
-- ✓ Answer interview questions
-- ✓ Lead SDET initiatives
+### By Day 5 (Gen AI Testing), Should:
+- ✓ Understand all 13 Gen AI testing concepts
+- ✓ Implement lexical and semantic evaluation
+- ✓ Test RAG pipelines with groundedness scoring
+- ✓ Set up pipeline quality gates
+- ✓ Run prompt A/B tests with statistical analysis
+- ✓ Detect hallucinations and safety violations
+- ✓ Test adversarial attacks (injection, jailbreak)
+- ✓ Generate synthetic test data
 
 ---
 
@@ -503,11 +534,16 @@ in VS Code, everyone does exercises.
 - [ ] Run `npm run test:day4`
 
 ### Day 5
-- [ ] Interview question review
-- [ ] Senior dev shares experience
-- [ ] Mock interviews
-- [ ] Best practices discussion
-- [ ] Next steps planning
+- [ ] Gen AI testing foundations taught
+- [ ] Lexical & Semantic metrics demo
+- [ ] RAG + Groundedness walkthrough
+- [ ] Pipeline Gates hands-on
+- [ ] Prompt A/B Harness exercise
+- [ ] Adversarial testing demo
+- [ ] Synthetic data generation exercise
+- [ ] Safety validation walkthrough
+- [ ] Run `npm run test:bdd:day5`
+- [ ] All 13 BDD features understood
 
 ---
 
