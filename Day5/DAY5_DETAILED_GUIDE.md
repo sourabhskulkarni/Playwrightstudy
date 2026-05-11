@@ -684,9 +684,9 @@ PlaywrightStudy/
 │
 ├── .github/
 │   └── workflows/
-│       ├── playwright.yml          ← Runs UI tests
+│       ├── playwright.yml          ← Runs on every PR & push
 │       ├── performance.yml         ← Runs K6 & JMeter
-│       └── scheduled-tests.yml     ← Runs daily at specific time
+│       └── scheduled-tests.yml     ← Runs weekly on Wednesday at 2 AM UTC ✅
 │
 ├── performance/
 │   ├── k6/
@@ -964,41 +964,63 @@ GitHub.com → Your repo → Actions → Playwright Tests → Click run
 
 ---
 
-### Workflow 2: Scheduled Tests (Daily/Weekly)
+### Workflow 2: Scheduled Tests (Weekly - Wednesday)
 
 **File:** `.github/workflows/scheduled-tests.yml`
 
 **When it runs:**
-- ✓ Every day at 2:00 AM UTC
-- ✓ Every Monday at 6:00 AM UTC
+- ✓ **Every Wednesday at 2:00 AM UTC** (optimized from daily)
 - ✓ Manual trigger from GitHub UI
+- ✓ Reduces unnecessary executions to 1x per week
 
 **What it does:**
-- Same as basic tests
+- Runs full Playwright test suite with Cucumber integration
+- Tests all features from Day2 examples
 - Creates GitHub Issue if tests fail
-- Perfect for regression testing
+- Uploads test report artifact (30-day retention)
+- Perfect for weekly regression testing
+
+**Updated Schedule (May 11, 2026):**
+```
+OLD Schedule (Before):
+- Daily at 2:00 AM UTC  (8 times/week)
+- Monday at 6:00 AM UTC (1 time/week)
+
+NEW Schedule (After):
+- Wednesday at 2:00 AM UTC only (1 time/week) ✅
+```
 
 **Cron Schedule Explained:**
 ```
-'0 2 * * *'     = Daily at 2:00 AM UTC
-│ │ │ │ └─ Day of week (0-6, where 0 = Sunday)
+'0 2 * * 3'     = Every Wednesday at 2:00 AM UTC
+│ │ │ │ └─ Day of week (0-6, where 3 = Wednesday)
 │ │ │ ├─── Month (1-12)
 │ │ ├───── Day of month (1-31)
 │ ├─────── Hour (0-23)
 └───────── Minute (0-59)
 
-Examples:
+Common Examples:
+'0 2 * * 3'     = Wednesdays at 2:00 AM UTC ✅ (CURRENT)
 '0 2 * * *'     = Daily at 2:00 AM UTC
 '0 6 * * 1'     = Mondays at 6:00 AM UTC
 '0 9 * * 1-5'   = Weekdays at 9:00 AM UTC
 '30 14 * * *'   = Daily at 14:30 (2:30 PM) UTC
 ```
 
+**Benefits of Weekly Schedule:**
+- ✓ Reduced resource consumption
+- ✓ Less noise in GitHub Actions logs
+- ✓ Still catches regressions once per week
+- ✓ Faster feedback for PR tests (unchanged)
+- ✓ Cost optimization on CI/CD platform
+
 **To modify schedule:**
 1. Edit `.github/workflows/scheduled-tests.yml`
-2. Change the cron values
-3. Push to GitHub
-4. New schedule takes effect
+2. Change the cron values (e.g., `'0 2 * * 3'` for Wednesday)
+3. Commit and push to GitHub
+4. New schedule takes effect immediately
+
+**Full Details:** See [CICD_SCHEDULE_UPDATE.md](CICD_SCHEDULE_UPDATE.md) for complete configuration
 
 ---
 
@@ -1316,15 +1338,15 @@ Use https://crontab.guru for testing cron expressions
 
 ### 🎯 Your Current Status:
 
-| Component | Status | Details |
-|-----------|--------|---------|
-| Playwright Tests | ✅ Configured | Runs on push & PR |
-| Scheduled Tests | ✅ Configured | Daily 2 AM, Monday 6 AM UTC |
-| K6 Performance | ✅ Configured | Runs on code changes |
-| Notifications | ✅ Configured | GitHub Issues on failure |
-| GitHub Account | ✅ Ready | https://github.com/sourabhskulkarni |
-| Repository | ✅ Created | PlaywrightStudy public/private |
-| Free Minutes | ✅ Available | 2,000/month (private) or unlimited (public) |
+| Component        | Status       | Details                                     |
+| ---------------- | ------------ | ------------------------------------------- |
+| Playwright Tests | ✅ Configured | Runs on push & PR                           |
+| Scheduled Tests  | ✅ Configured | Daily 2 AM, Monday 6 AM UTC                 |
+| K6 Performance   | ✅ Configured | Runs on code changes                        |
+| Notifications    | ✅ Configured | GitHub Issues on failure                    |
+| GitHub Account   | ✅ Ready      | https://github.com/sourabhskulkarni         |
+| Repository       | ✅ Created    | PlaywrightStudy public/private              |
+| Free Minutes     | ✅ Available  | 2,000/month (private) or unlimited (public) |
 
 ### 🚀 Next:
 
@@ -1428,14 +1450,14 @@ on:
 
 ## Troubleshooting Guide
 
-| Problem | Cause | Solution |
-|---------|-------|----------|
-| "No such file" | Path is wrong | Check paths are relative to repo root |
-| YAML error | Indentation wrong | Use 2 spaces, not tabs |
-| Tests fail in CI but pass locally | Different environment | Check Node version, install browsers |
-| Workflow doesn't trigger | Trigger not configured | Check `on:` section |
-| No artifacts uploaded | Step failed before upload | Use `if: always()` to upload even on failure |
-| Timeout errors | Tests too slow | Increase `timeout` value |
+| Problem                           | Cause                     | Solution                                     |
+| --------------------------------- | ------------------------- | -------------------------------------------- |
+| "No such file"                    | Path is wrong             | Check paths are relative to repo root        |
+| YAML error                        | Indentation wrong         | Use 2 spaces, not tabs                       |
+| Tests fail in CI but pass locally | Different environment     | Check Node version, install browsers         |
+| Workflow doesn't trigger          | Trigger not configured    | Check `on:` section                          |
+| No artifacts uploaded             | Step failed before upload | Use `if: always()` to upload even on failure |
+| Timeout errors                    | Tests too slow            | Increase `timeout` value                     |
 
 ---
 
