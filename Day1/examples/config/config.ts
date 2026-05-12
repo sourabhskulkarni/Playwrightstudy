@@ -36,7 +36,7 @@ class Config implements ConfigInterface {
     : (process.env.BASE_URL || 'https://www.makemytrip.com/');
     this.apiBaseUrl = process.env.API_BASE_URL || 'https://api.makemytrip.com';
     this.browser = process.env.BROWSER || 'chromium';
-    this.headless = process.env.HEADLESS !== 'false';
+    this.headless = process.env.HEADLESS === 'true';
     this.slowMo = parseInt(process.env.SLOW_MO || '0', 10);
     this.timeout = parseInt(process.env.DEFAULT_TIMEOUT || '30000', 10);
     this.navigationTimeout = parseInt(process.env.NAVIGATION_TIMEOUT || '30000', 10);

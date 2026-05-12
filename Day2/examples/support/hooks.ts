@@ -14,7 +14,7 @@ AfterAll(async function () {
 });
 
 Before(async function (this: Day3World) {
-  this.browser = await chromium.launch({ headless: true });
+  this.browser = await chromium.launch({ headless: false });
   this.context = await this.browser.newContext();
   this.page = await this.context.newPage();
   this.apiContext = this.context.request;

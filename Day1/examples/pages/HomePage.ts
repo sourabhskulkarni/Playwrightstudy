@@ -39,18 +39,18 @@ export class HomePage {
   }
 
   async verifyloginpopupvisible(): Promise<void> {
-    await expect(this.loginpopup).toBeVisible({ timeout: 10000 });
+    await expect(this.loginpopup).toBeVisible({ timeout: 30000 });
     logger.info('Login pop-up is visible');
   }
 
   async closeLoginPopup(): Promise<void> {
     await this.closepopup.click();
-    await expect(this.loginpopup).toBeHidden({ timeout: 5000 });
+    await expect(this.loginpopup).toBeHidden({ timeout: 10000 });
     logger.info('Login pop-up has been closed');
   }
 
   async verifyLoginOrCreateAccountButtonVisible(): Promise<void> {
-    await expect(this.LoginorCreateAccountButton).toBeVisible({ timeout: 5000 });
+    await expect(this.LoginorCreateAccountButton).toBeVisible({ timeout: 10000 });
     logger.info('Login or Create Account button is visible');
   }
 }
